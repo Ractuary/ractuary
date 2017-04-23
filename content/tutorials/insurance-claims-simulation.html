@@ -1,0 +1,78 @@
+---
+title: "Simple Insurance Claims Simulation"
+date: "2017-03-20"
+output: html_document
+tut_category: "simulation"
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<div id="a-single-frequencyseverity-observation" class="section level2">
+<h2>A Single Frequency/Severity Observation</h2>
+<p>Warning: This tutorial is just a placeholder so don’t working through it.</p>
+<p>We will start running one frequency severity simulation. We will firts simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.</p>
+<div id="step-1-simulate-a-single-frequency" class="section level3">
+<h3>Step 1: simulate a single frequency</h3>
+<p>We are using the poisson distriubtion to simulate the frequency. The poisson distribution has one parameter (<code>lambda</code>). Both the mean and the variance of the poisson distribution are equal to <code>lambda</code>. Without further adu let’s run the simulation:</p>
+<pre class="r"><code>set.seed(3000)
+
+freq &lt;- rpois(n = 1, lambda = 10)
+freq</code></pre>
+<pre><code>## [1] 13</code></pre>
+<p>We simulated 13 claims.</p>
+</div>
+<div id="step-2-severity-simulation" class="section level3">
+<h3>Step 2: Severity Simulation</h3>
+<p>Now we will simulate a severity for each of these 13 claims. We will use the lognormal distributions here.</p>
+<pre class="r"><code>severity &lt;- rlnorm(n = freq, meanlog = 9, sd = 1.9)
+severity</code></pre>
+<pre><code>##  [1]  27585.0343  19542.7042  35016.7195   5270.9408   4154.9639
+##  [6]   2359.7060    735.8857    322.2873    248.4781   1696.8470
+## [11]    374.5661  14470.0607 138278.2592</code></pre>
+</div>
+<div id="step-3-inspect-the-results" class="section level3">
+<h3>Step 3: Inspect the Results</h3>
+<pre class="r"><code>summary(severity)</code></pre>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##    248.5    735.9   4155.0  19240.0  19540.0 138300.0</code></pre>
+<p>Ok. That looks pretty good. Now let’s do what computers do best and scale the number of computations up a bit.</p>
+</div>
+</div>
+<div id="multiple-frequencyseverity-observations" class="section level2">
+<h2>Multiple Frequency/Severity Observations</h2>
+<div id="step-1-simulate-the-frequencies" class="section level3">
+<h3>Step 1: simulate the frequencies</h3>
+<pre class="r"><code># set the number of observations
+n_obs &lt;- 1000
+
+# run the frequency simulations
+freq &lt;- rpois(n_obs, 10)
+
+# inspect some of the simulated frequencies
+freq[1:20]</code></pre>
+<pre><code>##  [1] 10  8 11 11 13 17  8 15  9 15  9 12  6  8  8 11 13  7 15 10</code></pre>
+</div>
+<div id="step-2-simulate-the-severities" class="section level3">
+<h3>Step 2: Simulate the Severities</h3>
+<p>Now we are going to run severity simulations for each of our simulated frequencies. This is where things may start to get a little be complicated if you are just starting out.</p>
+<pre class="r"><code>severity &lt;- lapply(freq, function(x) {
+  rlnorm(n = x, meanlog = 9, sd = 1.9)
+})</code></pre>
+<p>In the above code we used the <code>lapply()</code> function to run the <code>rlnorm()</code> function on each of the elements in out <code>freq</code> vector. The output is a list with 1000 elements. Each element in our list output contains the number of simulated severities as specified in the <code>freq</code> vector. e.g. the first two frequency simulations were 10, 8 and the first two elements in our <code>severity</code> list are:</p>
+<pre class="r"><code>severity[1:2]</code></pre>
+<pre><code>## [[1]]
+##  [1] 1207648.3071    7162.4942     943.3199   27414.2922   52984.9986
+##  [6]     767.3141   11866.0220    9226.3428   78598.8073    4117.2499
+## 
+## [[2]]
+## [1]  1050.4483  4785.0691  6728.8804   659.4182   785.1295   549.3497
+## [7]  9945.6607 98724.3965</code></pre>
+<p>You can see above that <code>severity[[1]]</code> has 10 simulated values and <code>severity[[2]]</code> has 8 simulated values.</p>
+</div>
+</div>
+<div id="step-3-tidy-the-data" class="section level2">
+<h2>Step 3: Tidy the Data</h2>
+</div>

@@ -1,0 +1,70 @@
+---
+title: "About R Actuary"
+author: "Andy Merlino"
+---
+
+The RActuary mission is to improve actuarial analysis.  Our guiding principles are to make analyses more:
+ 
+ - **powerful**: We take advantage of continued advances in computing and data science
+ - **communicable**: We are web first. Our analyses are informative, interactive, and scalable
+ - **reproducible**: Our analyses can be understood and regenerated from the code used to produce them
+
+We develop open source R packages and create projects for this purpose.  We also make tutorials to help people transition from spreadsheets to R.
+
+## Actuaries
+
+Most actuaries think R is interesting, some actuaries even use R regularly, but as of 2017 it is rare to find an actuary who uses R (or any programmed data analysis) more than he or she uses Excel.  This is concerning for the quality of actuarial analysis and the long term viability of the actuarial profession in general.  It is also concerning for the sanity of actuaries who spend half of their waking lives updating Excel sheets.
+
+There is a better way.  We just need to build out the tools and spread the knowledge.  For our own sanity and the sake of our children we need to move on from Excel.  RActuary is here to facilitate this progress.  If this interests you, please consider contributing to some of our packages.  We need all the help we can get.  If you aren't yet ready to contribute, but are still interested in RActuary, I would still love to hear from you.  My email is [andy.merlino@tychobra.com](mailto:andy.merlino@tychobra.com).
+
+## R
+
+R is the best platform to improve actuarial analysis.  R is the leading data analysis platform, and it is improving rapidly.  The acceleration of innovation is obvious when you look at growth in R packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).  
+
+```{r, echo = FALSE }
+num_pkg <- read.csv("./blog/data/num-r-packages.csv", stringsAsFactors = FALSE)
+num_pkg <- num_pkg[, -1]
+num_pkg$date <- as.Date(num_pkg$date)
+
+current_pckg_num <- data.frame(
+  date = Sys.Date(),
+  pkgs = nrow(available.packages(repos='http://cran.us.r-project.org'))
+)
+
+num_pkg <- rbind(num_pkg, current_pckg_num)
+```
+
+```{r, message = FALSE, eval = FALSE, echo = FALSE }
+# widgetframe will soon be updated to automate this iframe stuff
+#library(widgetframe)
+library(highcharter)
+g <- highchart() %>%
+        hc_title(text = "R Packages on CRAN") %>%
+        hc_chart(type = "line") %>%
+        hc_legend(enabled = FALSE) %>%
+        hc_add_series_times_values(num_pkg$date, num_pkg$pkgs, name = "Packages")
+ 
+htmlwidgets::saveWidget(g, file = "img/cran-pkgs.html", selfcontained = TRUE)
+```
+
+<iframe src="../blog/img/cran-pkgs/index.html" width = "100%" height="500" ></iframe>
+
+[how to easily make the above plot in R]()
+
+CRAN was created in 1997, so (if you mouse over the above plot you can see) it took 10 years to get to 1,000 packages in 2007 and 10 more year to get to 10,000 packages in 2017.  The number of packages on CRAN is doubling every 3.3 years; this is the definition of exponential growth.  Will CRAN have 100,000 packages in 2027?
+
+## Rstudio
+
+Companies continue to increase their investments in R. Most of the big tech companies are invested in R, and more importantly [Rstudio](https://www.rstudio.com/) (starting around 2011) began rapidly bringing R from academia to the mainstream.  Rstudio did this by building powerful and easy to approach tools to improve and communicate data analysis.  The [Rstudio IDE](https://www.rstudio.com/products/rstudio/), [Shiny](https://shiny.rstudio.com/), and [Rmarkdown](http://rmarkdown.rstudio.com/) are three of the most notable of their many projects.
+
+Rstudio's packages are built with a coherent [tidy data](http://tidyverse.org/) philosophy for data science.  This allows them to work nicely together and have consistent and powerful APIs.  
+
+Rstudio's packages also tend to be very easy to use out of the box.  Their packages allow the user to get a minimal result with very little knowledge of the package.  They do this while still allowing for a high degree of flexibility as you learn more about the package.  This package design structure creates an enjoyable experience where your efforts are quickly and constantly rewarded.
+
+RActuary has adopted the Rstudio philosophy of tidy data analysis and a "simple defaults with great flexibility" approach to building packages.
+
+## Me
+
+I am a property and casualty actuary living in Atlanta, GA. I believe most serious data analysis should be done in an environment like R's rather than on a spreadsheet; I hope RActuary will help other actuaries in their transition from spreadsheets to programmed data analysis.
+
+I love to learn, and I constantly experiment with alternate ways to improve my workflow. Since I started using R, I have been cycling through a state of ignorance, learning, and then discovering new areas in which I am completely ignorant. It has been a fun experience, and I am hopeful more and more actuaries will see R as the powerful tool I believe it is. I am looking forward to sharing some of the things I have learned and whatever I happen to learn in the future with whoever finds it interesting or useful.

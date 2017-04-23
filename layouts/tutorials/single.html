@@ -1,0 +1,21 @@
+{{ partial "head" . }}
+<div id="wrapper" class="toggled">
+{{ partial "sidebar.html" . }}
+<div class="col-12">
+  {{ partial "navToggle.html" . }}
+  <div class="row main-content">
+    <div class="content-column-content col-xl-10">
+        <a href="{{ .Site.BaseURL }}tutorials/">< Back to Tutorials</a>
+        <br />
+        <br />
+        <div class="card">
+          <div class="card-block">
+          <h1 class="car-title">{{ .Title }}</h1>
+          <br />
+          <br />
+          {{ .Content }}
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

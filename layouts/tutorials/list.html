@@ -1,0 +1,59 @@
+{{ partial "head.html" . }}
+<div id="wrapper" class="toggled">
+{{ partial "sidebar.html" . }}
+<div class="col-12">
+  {{ partial "navToggle.html" . }}
+  <div class="row main-content">
+    <div class="col-12">
+      <h1>{{ .Title }}</h1>
+      <br />
+      <br />
+      <div class="row">
+        
+        {{ range .Data.Pages }}
+          {{ if eq .Params.tut_category "simulation" }}
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-block">
+                  <h2 class="card-title">Simulation</h2>
+                  <h6 class="card-test">Simulations are cool</h6>
+                  <br />
+                  <ul style="list-style-type: none;">
+                    <li>
+                      <h4>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                      </h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}
+            
+        {{ range .Data.Pages }}
+          {{ if eq .Params.tut_category "modeling" }}
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-block">
+                  <h2 class="card-title">Modeling</h2>
+                  <h6 class="card-test">Modeling is neat</h6>
+                  <br />
+                  <ul style="list-style-type: none;">
+                    <li>
+                      <h4>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                      </h4>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        {{ end }}  
+      
+      </div>      
+    </div>
+  </div>
+</div>
+{{ partial "foot.html" . }}

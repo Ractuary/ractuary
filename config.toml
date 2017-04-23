@@ -1,0 +1,41 @@
+baseurl = "/"
+title = "Actuary"
+theme = "tychobra-hugo-theme"
+pluralizeListTitles = false
+languageCode = "en-us"
+googleAnalytics = ""
+
+[params]
+  copyright = "&copy;2017 RActuary"
+  disqus = "ractuary"
+  image = "img/ractuary-logo.png"
+  email = "merlinoa88@gmail.com"
+  coverImage = "img/Switchboard_2.jpg"
+
+  # Nav links in the side bar
+
+  [[params.navlinks]]
+  name = "About"
+  url = "about/"
+  icon = "info-circle"
+  
+  [[params.navlinks]]
+  name = "Projects"
+  url = "projects/"
+  icon = "folder-open"
+  
+  [[params.navlinks]]
+  name = "Tutorials"
+  url = "tutorials/"
+  icon = "graduation-cap"
+  
+  [[params.navlinks]]
+  name = "Blog"
+  url = "blog/"
+  icon = "newspaper-o"
+  
+  [params.social]
+  email         = "merlinoa88@gmail.com"
+  twitter       = "full profile url in twitter"
+  github        = "https://github.com/merlinoa"
+

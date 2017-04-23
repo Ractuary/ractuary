@@ -1,0 +1,83 @@
+---
+title: "Simple Insurance Claims Simulation"
+date: "2017-03-20"
+output: html_document
+tut_category: "simulation"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## A Single Frequency/Severity Observation
+
+Warning: This tutorial is just a placeholder so don't working through it.
+
+We will start running one frequency severity simulation.  We will firts simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.
+
+### Step 1: simulate a single frequency
+
+We are using the poisson distriubtion to simulate the frequency.  The poisson distribution has one parameter (`lambda`).  Both the mean and the variance of the poisson distribution are equal to `lambda`.  Without further adu let's run the simulation:
+
+```{r set_seed}
+set.seed(3000)
+
+freq <- rpois(n = 1, lambda = 10)
+freq
+```
+
+We simulated `r freq` claims.
+
+### Step 2: Severity Simulation
+
+Now we will simulate a severity for each of these `r freq` claims.  We will use the lognormal distributions here.
+
+```{r single_severity_simulation}
+severity <- rlnorm(n = freq, meanlog = 9, sd = 1.9)
+severity
+```
+
+### Step 3: Inspect the Results
+
+```{r single_results}
+summary(severity)
+```
+
+Ok. That looks pretty good.  Now let's do what computers do best and scale the number of computations up a bit.
+
+## Multiple Frequency/Severity Observations
+
+### Step 1: simulate the frequencies
+
+```{r frequency_simulation}
+# set the number of observations
+n_obs <- 1000
+
+# run the frequency simulations
+freq <- rpois(n_obs, 10)
+
+# inspect some of the simulated frequencies
+freq[1:20]
+```
+
+### Step 2: Simulate the Severities
+
+Now we are going to run severity simulations for each of our simulated frequencies.  This is where things may start to get a little be complicated if you are just starting out.
+
+```{r severity_simulation}
+severity <- lapply(freq, function(x) {
+  rlnorm(n = x, meanlog = 9, sd = 1.9)
+})
+```
+
+In the above code we used the `lapply()` function to run the `rlnorm()` function on each of the elements in out `freq` vector.  The output is a list with `r n_obs` elements.  Each element in our list output contains the number of simulated severities as specified in the `freq` vector.  e.g. the first two frequency simulations were `r freq[1:2]` and the first two elements in our `severity` list are:
+
+```{r}
+severity[1:2]
+```
+
+You can see above that `severity[[1]]` has `r freq[1]` simulated values and `severity[[2]]` has `r freq[2]` simulated values.  
+
+## Step 3: Tidy the Data
+
+

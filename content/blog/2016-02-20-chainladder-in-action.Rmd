@@ -1,0 +1,345 @@
+---
+title: "ChainLadder Package in Action"
+draft: true
+author: "Andy Merlino"
+type: "post"
+date: "2017-02-20"
+categories: ["ChainLadder", "Reserving"]
+image: "img/chain-ladder.jpg"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = FALSE)
+```
+
+> Actuarial Central Estimate — An estimate that represents an expected value over the range of reasonably possible outcomes  
+>      -- [Actuarial Standards of Practice No. 43](http://www.actuarialstandardsboard.org/wp-content/uploads/2014/07/asop043_106.pdf)
+
+
+### Introduction
+
+The definition of an "actuarial central estimate" is extermely vague; it doesn't actually mean anything.  A better estimation uses an algorithm to derive the estimation.  As a simple example of a good estimator of central tendancy we can look at the sample mean:
+
+$\hat{X} = \sum_{i}^{n}{\frac{x_i}{n}}$
+
+What makes a sample mean good is that, given a specific sample: 
+
+1. It is always the same
+2. It has a standard error
+
+Actuarial central estimates are often values judgementally selected by the actuary and as such they lack the above properties.  This post shows how you can use R to make reserve projections based on statistics rather than selections.
+
+### Glossary
+
+See [the Ractuary Vernacular]() for definitions of insurance industry terms used in this post.  
+
+### Introduction
+
+The `estimated reserve` is the most important number in an actuarial reserve report.  For our purposes the `estimated reserve` will be either the `unpaid loss` (when `paid losses` are used to make the reserve estimate) or the `IBNR` (when `reported losses` are used).
+
+In practice the `estimated reserve` is not estimated from a well defined algorithm; it is the result of actuarial judgment.  Naturally, actuarial judgment varies across space (e.g. from one actuary to another).  It also varies across time (e.g. An actuary feels differently about certain information at one time than she does at another.  This could be due to access to previously unavailable information, or due to Dave cooking his abhorent tuna casorol in the break room microwave again). 
+
+We can't reproduce estimates based on actuarial judgement.  What good is an estimate if it can't be independently verified?  Additionally we can't scale estimates to other loss data.  This makes it essentially impossible to measure accuracy with anything resembling a statistical approach.  How do we improve our methodologies if we can't estimate them? So, essentially estimates based off actuarial jusdgement are worthless because they can't be reproduced, and they will never get any better because their accuracy can't be measured.
+
+So, let's see if we can do better...
+
+### Getting Started
+
+The [ChainLadder](http://cran.r-project.org/web/packages/ChainLadder/vignettes/ChainLadder.pdf) package by Markus Gesmann, et al. includes functions for estimating reserves.  Not only do these functions provide a point estimate for the reserve, but they provide statistically valid confidence intervals around these estimates so we can measure their accuracy.  
+
+Instead of using estimates based on actuarial judgement, we are going to use the `ChainLadder` package to create reproducible and scalable estimates.
+
+We will use the `MackChainLadder()` and `BootChainLadder` functions. The ChainLadder package comes with several other functions for estimting reserves, but we will have to save them for another day.  `MackChainLadder()` provides a distribution free calculation of the standard error of the estimated reserve.  `BootChainLadder()` uses a two stage bootstrap/simulation technique to determine the confidence interval around the estimated reserve.
+
+We will be using the following packages in this analysis:
+
+```{r packages_data, message = FALSE}
+# CRAN packages
+library(ChainLadder) # actuarial projections
+library(dplyr) # data manipulation
+library(tidyr) # data manipulation
+library(ggplot2) # plots
+library(DT) # tables
+# GitHub packages
+# devtools::install_github("merlinoa/casdata")
+library(casdata) # insurance data
+```
+
+### Data
+
+The CAS website provides historical U.S. insurance loss data across 6 different lines of business and many different companies.  Here are the firt 100 rows of the raw data:
+
+```{r raw_data}
+set.seed(1234)
+
+DT::datatable(
+  casdata::losses[1:100, ],
+  rownames = FALSE,
+  options = list(
+    dom = "tp"
+  )
+)
+```
+
+Data from accident years 1988 through 1997 evaluated at each calendar year end (i.e. the upper left triangle of losses) is run through the `ChainLadder` functions.  
+
+```{r show_triangle, results = "asis"}
+show_box <- casdata::losses %>%
+              dplyr::filter(lob == "wkcomp", 
+                            gr_code == 86) %>%
+              dplyr::mutate(cal_yr = origin + dev - 1)
+
+show_tri <- show_box %>%
+              dplyr::filter(cal_yr <= 1997) %>%
+              dplyr::select(dev, paid, origin) %>%
+              tidyr::spread(key = dev, value = paid)
+
+# DT::datatable(
+#   show_tri,
+#   rownames = FALSE,
+#   options = list(
+#     dom = 't',
+#     columnDefs = list(
+#       list(orderable = FALSE, targets = 0:(length(show_tri) - 1)),
+#       list(class="dt-center", targets = 0)
+#     )
+#   )
+# ) %>%
+#   formatCurrency(
+#     columns = 2:11,
+#     digits = 0,
+#     currency = ""
+#   )
+```
+
+In addition to the upper left triangle, the CAS data set includes actual losses for each accident year developed for 10 years; thus we can compare the projected reserve to the actual reserve after 10 development years (i.e. we can compare the triangle to the filled in square).
+
+```{r show_box, results="asis"}
+
+```
+
+For more information on the data see the [CAS webpage](http://www.casact.org/research/index.cfm?fa=loss_reserves_data).
+
+The following table breaks down the number of companies included in this analysis by line of business.
+
+```{r data_cleaning}
+# GRCODE is only unique by lob, 
+# so we need to create new column with unique gr_code
+# by line of business
+df <- losses %>%
+        mutate(id = paste(lob, gr_code, sep = "_"))
+
+
+# All companies with paid loss below this amount will be removed from 
+# our sample before we run the ChainLadder projections.  This will 
+# help to remove some of the random variability and data issues that 
+# are common in companies with very little exposure
+paid_cutoff <- 200
+
+# find unique lob company id for entities below the value in `paid_cut`
+id_below_cut <- df %>%
+                filter(paid <= paid_cutoff) %>%
+                .[["id"]] %>%
+                unique()
+
+# remove the companies below the paid cut off
+df <- df %>%
+        filter(!(id %in% id_below_cut))
+```
+
+
+
+```{r num_compnies, results="asis"}
+df_out <- group_by(df, lob) %>%
+            summarise(companies = length(unique(gr_code)))
+
+df_out$lob <- c("Commercial Auto", "Medical Malpractice",
+                "Other Liabiltiy", "Private Passenger",
+                "Product Liability", "Workers Compensation")
+
+# DT::datatable(
+#   as.data.frame(df_out),
+#   rownames = FALSE,
+#   colnames = c("Line of Business", "Number of Companies"),
+#   options = list(
+#     dom = 't'
+#   ),
+#   caption = "Companies by Line of Business",
+#   width = '50%')
+```
+
+### Analysis
+
+I run the `MackChainLadder()` and `BootChainLadder()` functions on each company.  I subtract the estimated reserve from the actual reserve to get the residuals.  To normalize the residuals, I divide the residuals by the estimated standard error.  Put a little more formally, I am simply interested in the normalized residuals, $Z$, where:
+
+$Z = \frac{(p - \hat{p})}{\hat{se(\hat{p})}}$
+
+Where: 
+
+* $\hat{p}$ is the estimated reserve.
+* $\hat{se(\hat{p})}$ is the estimated standard error of the estimated reserve. 
+* $p$ is the actual reserve.  Where the actual reserve is the paid or incurred amount after 10 development years less the latest paid or incurred amount when the funtion was called.
+
+The following histograms should provide a visual interpretation of how the reserve projection errors are distributed around the reserve projection.
+
+```{r create_triangles, echo = FALSE}
+# Note: These projection functions do not develop our latest amounts to ultimate loss
+# amounts.  Losses are developed to development age 10 years; development age 10 years
+# is the most mature development age for which we have actual loss experience.
+# we define the actual reserve for projections based on paid data as the
+# paid loss at the 10th development year less the paid loss at the time of the
+# projection.
+
+# function: to create triangles for each company
+# param data the cleaned insurance loss data frame; `df`
+# param loss_type character "CumPaidLoss_D" or "IncurLoss_D"
+triangles <- function(data, loss_type) {
+
+ # find unique GRCODEs for looping
+ unique_id <- unique(data$id)
+ 
+ # create triangles for each company using `ChainLadder` package
+ tri <- vector("list", length(unique_id))
+ for (i in seq_along(unique_id)) {
+   tri[[i]] <- as.triangle(data[data$id == unique_id[i] & 
+                                      data$origin + 
+                                      data$dev < 1999, ], 
+                               origin = "origin", 
+                               dev = "dev", 
+                               value = loss_type)
+ }
+ # set name of each triangle to the id
+ names(tri) <- unique_id
+ tri
+}
+
+# use above functions to create paid and incurred triangles for all lines
+# of business
+paid_triangles <- triangles(df ,loss_type = "paid")
+incurred_triangles <- triangles(df, loss_type = "incurred")
+```
+
+```{r projection_functions, echo = FALSE, warning = FALSE}
+# function for mack and boot projections============================================
+# param triangles list of all company triangles
+# param method character "MackChainLadder" or "BootChainLadder"
+projection <- function(triangles, method) {
+  # run mack model as provided in ChainLadder package 
+  projections <- lapply(triangles, method)
+  
+  # extract the good stuff from the boot projection
+  smry <- vector("list", length(projections))
+  for (i in seq_along(projections)) {
+    smry[[i]] <- summary(projections[[i]])[[2]]
+  }
+
+  smry <- as.data.frame(t(as.data.frame(smry)))
+  rownames(smry) <- NULL
+  smry <- data.frame(names(triangles), smry)
+  smry$lob <- gsub("_.*$", "", smry[, 1])
+  smry
+}
+```
+
+```{r projection_actual_join, echo = FALSE}
+# function: to find the sum of actual losses for all origin years for 
+# each insurance company after 10 development periods
+# param data the cleaned insurance loss data frame; `df`
+# param loss_type character "CumPaidLoss_D" or "IncurLoss_D"
+actual_ultimate <- function(data, loss_type) {
+  # find actual losses at development period 10
+  dev_10 <- data[data$dev == 10, ]
+  dev_10_sum <- as.data.frame(tapply(dev_10[, loss_type], dev_10$id,  sum))
+  dev_10_sum$id <- rownames(dev_10_sum)
+  names(dev_10_sum)[1] <- paste0(loss_type, "_ultimate")
+  dev_10_sum
+}
+
+# run function to find actual ultimates for all companies
+paid_actual_ultimate <- actual_ultimate(df, loss_type = "paid")
+incurred_actual_ultimate <- actual_ultimate(df, loss_type = "incurred")
+
+# group actual losses with mack projections
+projection_actual_join <- function(projection_smry, actual) {
+  smry <- left_join(projection_smry, actual, by = "id", copy = TRUE)
+  names(smry)[length(smry)] <- "actual_ultimate"
+  # calculate z value
+  smry$actual_ibnr <-  smry$actual_ultimate - smry$latest
+  smry$z = (smry$actual_ibnr - smry$ibnr) / smry$se
+  smry
+}
+```
+
+### Histograms
+
+```{r mack_projections, echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE}
+# calculate mack projections and grab summary
+paid_mack_smry <- projection(paid_triangles, 
+                             method = "MackChainLadder")[, c(1, 2, 4, 5, 6, 8)]
+names(paid_mack_smry) <- c("id", "latest", "ultimate", "ibnr", "se", "lob")
+
+incurred_mack_smry <- projection(incurred_triangles, 
+                                 method = "MackChainLadder")[, c(1, 2, 4, 5, 6, 8)]
+names(incurred_mack_smry) <- c("id", "latest", "ultimate", "ibnr", "se", "lob")
+
+# combine paid mack projections with actual
+paid_mack_full <- projection_actual_join(paid_mack_smry, paid_actual_ultimate)
+
+# combine incurred mack projections with actuals
+incurred_mack_full <- projection_actual_join(incurred_mack_smry, 
+                                      incurred_actual_ultimate)
+```
+
+```{r boot_projections, echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE}
+# caculate and return summary info for bootstrap method
+paid_boot_smry <- projection(paid_triangles, method = "BootChainLadder")[, c(1, 2:5, 8)]
+names(paid_boot_smry) <- c("id", "latest", "ultimate", "ibnr", "se", "lob")
+
+incurred_boot_smry <- projection(incurred_triangles, method = "BootChainLadder")[, c(1, 2:5, 8)]
+names(incurred_boot_smry) <- c("id", "latest", "ultimate", "ibnr", "se", "lob")
+
+# combine paid mack projections with actual
+paid_boot_full <- projection_actual_join(paid_boot_smry, paid_actual_ultimate)
+
+# combine incurred boot projections with actual
+incurred_boot_full <- projection_actual_join(incurred_boot_smry, 
+                                      incurred_actual_ultimate)
+```
+
+```{r histogram_plots, echo = FALSE, message = FALSE, warning = FALSE}
+# plot paid mack z values
+ggplot(paid_mack_full, aes(x = z, fill = lob)) +
+  geom_histogram(colour = "black") +
+  xlab("Normalized Projection Error - Z") +
+  ggtitle("Mack Projection - Paid Basis") +
+  geom_bar()
+
+# plot incurred mack z values
+ggplot(incurred_mack_full, aes(x = z, fill = lob)) +
+  geom_histogram(colour = "black") +
+  xlab("Normalized Projection Error - Z") +
+  ggtitle("Mack Projection - Incurred Basis") +
+  geom_bar()
+
+# plot paid boot z values
+ggplot(paid_boot_full, aes(x = z, fill = lob)) +
+  geom_histogram(colour = "black") +
+  xlab("Normalized Projection Error - Z") +
+  ggtitle("Boot Projection - Paid Basis") +
+  geom_bar()
+
+# plot incurred boot z values
+ggplot(incurred_boot_full, aes(x = z, fill = lob)) +
+  geom_histogram(colour = "black") +
+  xlab("Normalized Projection Error - Z") +
+  ggtitle("Boot Projection - Incurred Basis") +
+  geom_bar()
+```
+
+### Initial Take Aways
+
+Both the Mack and Boot paid reserve projections appear to slightly overestimate the actual reserve across all lines of business.  Several factors could be responsible for this overestimation (e.g. higher inflation in the years used to estimate the reserve than in the years after 1997).
+
+The incurred normalized projection errors tend to be smaller in absolute value terms than the paid reserve projections.
+
+The `BootChainLadder()` function on incurred losses gave significantly more accurate reserve projections than what would be expected if the projection errors were from the standard normal distribution.

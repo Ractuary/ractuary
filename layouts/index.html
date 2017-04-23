@@ -1,0 +1,60 @@
+{{ partial "head.html" . }}
+  <div class="row" 
+       style="height: 100%; background-color: #31708f;">
+    <div class="col-md-6" style="padding:100px">
+    <br />
+    <h1 class="display-3" style="color: white; letter-spacing: 3px;">
+      RActuary
+    </h1>
+    <br/>
+    <div>
+      <h2 class="lead" style="color: white; font-weight: bold;">
+        Actuarial analysis and communication using R
+      </h2>
+    </div>
+    <br />
+    <br />
+    <p class="lead">
+      <a class="btn btn-default btn-lg" href="{{ printf "%sabout/" .Site.BaseURL }}" role="button">
+        Learn More
+      </a>
+    </p>
+  </div>
+</div>
+<div class="row main-content">
+  <br />
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-block">
+        <h3 class="card-title">Tutorials</h3>
+        <p class="card-text">Learn how to create powerful and reproducible analyses using R.  Then communicate your findings using Shiny, Rmarkdown, bookdown, and other presentation mediums</p>
+        <a href="{{ .Site.BaseURL }}tutorials/" class="btn btn-default">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-block">
+        <h3 class="card-title">Projects</h3>
+        <p class="card-text">R packages and studies to support actuarial analysis in R</p>
+        <br />
+        <br />
+        <br />
+        <a href="{{ .Site.BaseURL }}projects/" class="btn btn-default">LEARN MORE</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card text-center">
+      <div class="card-block">
+        <h3 class="card-title">Reporting Gallery</h3>
+        <p class="card-text">Examples of actuarial analyses communicated via Shiny, Rmarkdown, and other analysis presentation mediums</p>
+        <br />
+        <br />
+        <a href="{{ .Site.BaseURL }}gallery/" class="btn btn-default">EXPLORE GALLERY</a>
+      </div>
+    </div>
+  </div>
+</div>
+   
+{{ partial "foot.html" . }}
