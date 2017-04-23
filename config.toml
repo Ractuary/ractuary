@@ -30,6 +30,11 @@ googleAnalytics = ""
   icon = "graduation-cap"
   
   [[params.navlinks]]
+  name = "Gallery"
+  url = "gallery/"
+  icon = "bar-chart"
+  
+  [[params.navlinks]]
   name = "Blog"
   url = "blog/"
   icon = "newspaper-o"
