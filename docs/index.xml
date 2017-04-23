@@ -81,5 +81,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       <description>Coming Soon  </description>
     </item>
     
+    <item>
+      <title>Shiny App: Frequency Severity Simulation</title>
+      <link>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

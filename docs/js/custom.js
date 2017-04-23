@@ -15,6 +15,7 @@
     "about",
     "projects",
     "tutorials",
+    "gallery",
     "blog"
   ];
   
