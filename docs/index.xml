@@ -69,7 +69,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
       
       <guid>https://ractuary.github.io/ractuary/about/</guid>
       <description>The RActuary mission is to improve actuarial analysis. Our guiding principles are to make analyses more:
- powerful: We take advantage of continued advances in computing and data science communicable: We are web first. Our analyses are informative, interactive, and scalable reproducible: Our analyses can be understood and regenerated from the code used to produce them  We develop open source R packages and create projects for this purpose. We also make tutorials to help people transition from spreadsheets to R.</description>
+ powerful: We take advantage of continued advances in computing and data science communicable: We focus on presenting analyses via the web reproducible: As in the final report can be regenerated from the code originally used to produce the analysis  We develop open source R packages and create projects for this purpose. We also make tutorials to help people transition from spreadsheets to R.</description>
     </item>
     
     <item>
