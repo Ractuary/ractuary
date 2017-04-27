@@ -7,6 +7,7 @@ tut_category: "simulation"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(comment = "#>")
 ```
 
 ## A Single Frequency/Severity Observation

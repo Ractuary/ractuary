@@ -21,7 +21,7 @@ tut_category: "simulation"
 
 freq &lt;- rpois(n = 1, lambda = 10)
 freq</code></pre>
-<pre><code>## [1] 13</code></pre>
+<pre><code>#&gt; [1] 13</code></pre>
 <p>We simulated 13 claims.</p>
 </div>
 <div id="step-2-severity-simulation" class="section level3">
@@ -29,15 +29,15 @@ freq</code></pre>
 <p>Now we will simulate a severity for each of these 13 claims. We will use the lognormal distributions here.</p>
 <pre class="r"><code>severity &lt;- rlnorm(n = freq, meanlog = 9, sd = 1.9)
 severity</code></pre>
-<pre><code>##  [1]  27585.0343  19542.7042  35016.7195   5270.9408   4154.9639
-##  [6]   2359.7060    735.8857    322.2873    248.4781   1696.8470
-## [11]    374.5661  14470.0607 138278.2592</code></pre>
+<pre><code>#&gt;  [1]  27585.0343  19542.7042  35016.7195   5270.9408   4154.9639
+#&gt;  [6]   2359.7060    735.8857    322.2873    248.4781   1696.8470
+#&gt; [11]    374.5661  14470.0607 138278.2592</code></pre>
 </div>
 <div id="step-3-inspect-the-results" class="section level3">
 <h3>Step 3: Inspect the Results</h3>
 <pre class="r"><code>summary(severity)</code></pre>
-<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##    248.5    735.9   4155.0  19235.1  19542.7 138278.3</code></pre>
+<pre><code>#&gt;     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+#&gt;    248.5    735.9   4155.0  19235.1  19542.7 138278.3</code></pre>
 <p>Ok. That looks pretty good. Now let’s do what computers do best and scale the number of computations up a bit.</p>
 </div>
 </div>
@@ -53,7 +53,7 @@ freq &lt;- rpois(n_obs, 10)
 
 # inspect some of the simulated frequencies
 freq[1:20]</code></pre>
-<pre><code>##  [1] 10  8 11 11 13 17  8 15  9 15  9 12  6  8  8 11 13  7 15 10</code></pre>
+<pre><code>#&gt;  [1] 10  8 11 11 13 17  8 15  9 15  9 12  6  8  8 11 13  7 15 10</code></pre>
 </div>
 <div id="step-2-simulate-the-severities" class="section level3">
 <h3>Step 2: Simulate the Severities</h3>
@@ -63,13 +63,13 @@ freq[1:20]</code></pre>
 })</code></pre>
 <p>In the above code we used the <code>lapply()</code> function to run the <code>rlnorm()</code> function on each of the elements in out <code>freq</code> vector. The output is a list with 1000 elements. Each element in our list output contains the number of simulated severities as specified in the <code>freq</code> vector. e.g. the first two frequency simulations were 10, 8 and the first two elements in our <code>severity</code> list are:</p>
 <pre class="r"><code>severity[1:2]</code></pre>
-<pre><code>## [[1]]
-##  [1] 1207648.3071    7162.4942     943.3199   27414.2922   52984.9986
-##  [6]     767.3141   11866.0220    9226.3428   78598.8073    4117.2499
-## 
-## [[2]]
-## [1]  1050.4483  4785.0691  6728.8804   659.4182   785.1295   549.3497
-## [7]  9945.6607 98724.3965</code></pre>
+<pre><code>#&gt; [[1]]
+#&gt;  [1] 1207648.3071    7162.4942     943.3199   27414.2922   52984.9986
+#&gt;  [6]     767.3141   11866.0220    9226.3428   78598.8073    4117.2499
+#&gt; 
+#&gt; [[2]]
+#&gt; [1]  1050.4483  4785.0691  6728.8804   659.4182   785.1295   549.3497
+#&gt; [7]  9945.6607 98724.3965</code></pre>
 <p>You can see above that <code>severity[[1]]</code> has 10 simulated values and <code>severity[[2]]</code> has 8 simulated values.</p>
 </div>
 </div>
