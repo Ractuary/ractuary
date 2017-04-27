@@ -27,6 +27,13 @@
   
   <link href="https://ractuary.github.io/ractuary/css/simplesidebar.css" rel="stylesheet" >
   
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-56381152-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
 </head>
 
 <body>
@@ -38,7 +45,7 @@
   <div id="sidebar-content">
     <h1 class="sidebar-heading">
       <a href="https://ractuary.github.io/ractuary/">
-        <img src="https://ractuary.github.io/ractuary//img/ractuary-logo.png" height="50" width="50"/> Actuary
+        <img src="https://ractuary.github.io/ractuary/img/ractuary-logo.png" height="50" width="50"/> Actuary
       </a>
     </h1>
     <br />
@@ -79,6 +86,19 @@
             </div>
             <div class="col-10">
               Tutorials
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/gallery/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-bar-chart"></i> 
+            </div>
+            <div class="col-10">
+              Gallery
             </div>
           </div>
           </a>
@@ -126,21 +146,20 @@
 <p>The RActuary mission is to improve actuarial analysis. Our guiding principles are to make analyses more:</p>
 <ul>
 <li><strong>powerful</strong>: We take advantage of continued advances in computing and data science</li>
-<li><strong>communicable</strong>: We are web first. Our analyses are informative, interactive, and scalable</li>
-<li><strong>reproducible</strong>: Our analyses can be understood and regenerated from the code used to produce them</li>
+<li><strong>communicable</strong>: We focus on presenting analyses via the web</li>
+<li><strong>reproducible</strong>: As in the final report can be regenerated from the code originally used to produce the analysis</li>
 </ul>
 <p>We develop open source R packages and create projects for this purpose. We also make tutorials to help people transition from spreadsheets to R.</p>
 <div id="actuaries" class="section level2">
 <h2>Actuaries</h2>
 <p>Most actuaries think R is interesting, some actuaries even use R regularly, but as of 2017 it is rare to find an actuary who uses R (or any programmed data analysis) more than he or she uses Excel. This is concerning for the quality of actuarial analysis and the long term viability of the actuarial profession in general. It is also concerning for the sanity of actuaries who spend half of their waking lives updating Excel sheets.</p>
-<p>There is a better way. We just need to build out the tools and spread the knowledge. For our own sanity and the sake of our children we need to move on from Excel. RActuary is here to facilitate this progress. If this interests you, please consider contributing to some of our packages. We need all the help we can get. If you aren’t yet ready to contribute, but are still interested in RActuary, I would still love to hear from you. My email is <a href="mailto:andy.merlino@tychobra.com">andy.merlino@tychobra.com</a>.</p>
+<p>There is a better way. We just need to build out the tools and spread the knowledge. For our own sanity and the sake of actuaries everywhere we need to move on from Excel. RActuary is here to facilitate this transition. If this interests you, please consider contributing to some of our packages. We need all the help we can get. If you aren’t yet ready to contribute, but are still interested in RActuary, I would love to hear from you. My email is <a href="mailto:andy.merlino@tychobra.com">andy.merlino@tychobra.com</a>.</p>
 </div>
 <div id="r" class="section level2">
 <h2>R</h2>
-<p>R is the best platform to improve actuarial analysis. R is the leading data analysis platform, and it is improving rapidly. The acceleration of innovation is obvious when you look at growth in R packages on <a href="https://en.wikipedia.org/wiki/R_(programming_language)#CRAN">CRAN</a>.</p>
+<p>R is the leading data analysis platform, and it is improving rapidly. The acceleration of innovation is obvious when you look at growth in R packages on <a href="https://en.wikipedia.org/wiki/R_(programming_language)#CRAN">CRAN</a>.</p>
 <iframe src="../blog/img/cran-pkgs/index.html" width="100%" height="500">
 </iframe>
-<p><a href="">how to easily make the above plot in R</a></p>
 <p>CRAN was created in 1997, so (if you mouse over the above plot you can see) it took 10 years to get to 1,000 packages in 2007 and 10 more year to get to 10,000 packages in 2017. The number of packages on CRAN is doubling every 3.3 years; this is the definition of exponential growth. Will CRAN have 100,000 packages in 2027?</p>
 </div>
 <div id="rstudio" class="section level2">

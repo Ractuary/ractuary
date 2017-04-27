@@ -1,0 +1,38 @@
+{{ partial "head.html" . }}
+<div id="wrapper" class="toggled">
+{{ partial "sidebar.html" . }}
+<div class="col-12">
+  {{ partial "navToggle.html" . }}
+  <div class="row main-content">
+    <div class="col-12">
+      <h1>{{ .Title }}</h1>
+      <br />
+      <br />
+      <div class="row">
+        
+        {{ range .Data.Pages }}
+          <div class="col-md-6">
+            <div class="card">
+              <a href="{{ .Params.app_url }}">
+                <img class="card-img-top" src="../{{ .Params.screen_shot }}" alt="">
+              </a>
+              <div class="card-block">
+                <h2 class="card-title">{{ .Title }}</h2>
+                <br />
+                <p class="card-text">{{ .Description }}</p>
+                <a href="{{ .Site.BaseURL }}blog/" class="btn btn-primary">
+                  MORE INFO
+                </a>
+                <a href="{{ .Params.app_url }}" class="btn btn-default">
+                  VIEW APP
+                </a>
+              </div>
+            </div>
+          </div>
+        {{ end }}
+      
+      </div>      
+    </div>
+  </div>
+</div>
+{{ partial "foot.html" . }}

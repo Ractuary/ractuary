@@ -53,6 +53,11 @@
   </url>
   
   <url>
+    <loc>https://ractuary.github.io/ractuary/gallery/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ractuary.github.io/ractuary/projects/</loc>
     <priority>0</priority>
   </url>
@@ -65,6 +70,10 @@
     <loc>https://ractuary.github.io/ractuary/categories/reserving/</loc>
     <lastmod>2017-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</loc>
   </url>
   
   <url>

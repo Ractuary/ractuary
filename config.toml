@@ -3,7 +3,7 @@ title = "Actuary"
 theme = "tychobra-hugo-theme"
 pluralizeListTitles = false
 languageCode = "en-us"
-googleAnalytics = ""
+googleAnalytics = "UA-56381152-2"
 
 [params]
   copyright = "&copy;2017 RActuary"
@@ -28,6 +28,11 @@ googleAnalytics = ""
   name = "Tutorials"
   url = "tutorials/"
   icon = "graduation-cap"
+  
+  [[params.navlinks]]
+  name = "Gallery"
+  url = "gallery/"
+  icon = "bar-chart"
   
   [[params.navlinks]]
   name = "Blog"
