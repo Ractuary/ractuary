@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ChainLadder Package in Action</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow" >
+  <meta name="googlebot" content="index,follow,snippet,archive" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic" >
+  <link rel="stylesheet" href="/css/font-awesome.min.css" />
+  
+  <meta name="google-site-verification" content="agjsDt8HXS4yYizS-kj6OnNXvJ-3J-ONvc2vVejs4ZQ" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" />
+  <link href="/css/style.css" rel="stylesheet" />
+  
+  <link rel="shortcut icon" href="/img/favicon.png" />
+  
+  
+  <link rel="stylesheet" href="/css/tychobra-hljs.css">
+  
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link href="/css/simplesidebar.css" rel="stylesheet" >
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-56381152-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+<body>
+  
+    
+            
+<div id="wrapper" class="toggled">
+<div id="sidebar-wrapper">
+  <div id="sidebar-content">
+    <h1 class="sidebar-heading">
+      <a href="/">
+        <img src="/img/ractuary-logo.png" height="50" width="50"/> Actuary
+      </a>
+    </h1>
+    <br />
+    <ul class="nav flex-column">
+      
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-info-circle"></i> 
+            </div>
+            <div class="col-10">
+              About
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/projects/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-folder-open"></i> 
+            </div>
+            <div class="col-10">
+              Projects
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/tutorials/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-graduation-cap"></i> 
+            </div>
+            <div class="col-10">
+              Tutorials
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/gallery/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-bar-chart"></i> 
+            </div>
+            <div class="col-10">
+              Gallery
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/blog/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-newspaper-o"></i> 
+            </div>
+            <div class="col-10">
+              Blog
+            </div>
+          </div>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="col-xl-10">
+  <div class="row" style="height: 40px; position: fixed; z-index:100000">
+  <a href="#menu-toggle" 
+     class="btn menu-toggled" 
+     id="menu-toggle"
+     style="top:0; z-index:100;">
+    <i class="fa fa-align-left "> </i>  
+  </a>
+</div>
+
+    <div class="main-content">
+      <div class="card">
+        <div class="card-block">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="post-image">
+            <img src="/img/chain-ladder.jpg" class="img-responsive" alt="" width="100%"/>
+          </div>
+        </div>
+  
+        <div class="col-sm-9">
+          <h2>ChainLadder Package in Action</h2>
+            <p>
+              By Andy Merlino
+            </p>
+  
+            <p>
+              February 20, 2017
+            </p>
+                    
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-12">
+          <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/datatables-binding/datatables.js"></script>
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dt-core/js/jquery.dataTables.min.js"></script>
+
+<blockquote>
+<p>Actuarial Central Estimate — An estimate that represents an expected value over the range of reasonably possible outcomes<br />
+– <a href="http://www.actuarialstandardsboard.org/wp-content/uploads/2014/07/asop043_106.pdf">Actuarial Standards of Practice No. 43</a></p>
+</blockquote>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>The definition of an “actuarial central estimate” is extermely vague; it doesn’t actually mean anything. A better estimation uses an algorithm to derive the estimation. As a simple example of a good estimator of central tendancy we can look at the sample mean:</p>
+<p><span class="math inline">\(\hat{X} = \sum_{i}^{n}{\frac{x_i}{n}}\)</span></p>
+<p>What makes a sample mean good is that, given a specific sample:</p>
+<ol style="list-style-type: decimal">
+<li>It is always the same</li>
+<li>It has a standard error</li>
+</ol>
+<p>Actuarial central estimates are often values judgementally selected by the actuary and as such they lack the above properties. This post shows how you can use R to make reserve projections based on statistics rather than selections.</p>
+</div>
+<div id="glossary" class="section level3">
+<h3>Glossary</h3>
+<p>See <a href="">the Ractuary Vernacular</a> for definitions of insurance industry terms used in this post.</p>
+</div>
+<div id="introduction-1" class="section level3">
+<h3>Introduction</h3>
+<p>The <code>estimated reserve</code> is the most important number in an actuarial reserve report. For our purposes the <code>estimated reserve</code> will be either the <code>unpaid loss</code> (when <code>paid losses</code> are used to make the reserve estimate) or the <code>IBNR</code> (when <code>reported losses</code> are used).</p>
+<p>In practice the <code>estimated reserve</code> is not estimated from a well defined algorithm; it is the result of actuarial judgment. Naturally, actuarial judgment varies across space (e.g. from one actuary to another). It also varies across time (e.g. An actuary feels differently about certain information at one time than she does at another. This could be due to access to previously unavailable information, or due to Dave cooking his abhorent tuna casorol in the break room microwave again).</p>
+<p>We can’t reproduce estimates based on actuarial judgement. What good is an estimate if it can’t be independently verified? Additionally we can’t scale estimates to other loss data. This makes it essentially impossible to measure accuracy with anything resembling a statistical approach. How do we improve our methodologies if we can’t estimate them? So, essentially estimates based off actuarial jusdgement are worthless because they can’t be reproduced, and they will never get any better because their accuracy can’t be measured.</p>
+<p>So, let’s see if we can do better…</p>
+</div>
+<div id="getting-started" class="section level3">
+<h3>Getting Started</h3>
+<p>The <a href="http://cran.r-project.org/web/packages/ChainLadder/vignettes/ChainLadder.pdf">ChainLadder</a> package by Markus Gesmann, et al. includes functions for estimating reserves. Not only do these functions provide a point estimate for the reserve, but they provide statistically valid confidence intervals around these estimates so we can measure their accuracy.</p>
+<p>Instead of using estimates based on actuarial judgement, we are going to use the <code>ChainLadder</code> package to create reproducible and scalable estimates.</p>
+<p>We will use the <code>MackChainLadder()</code> and <code>BootChainLadder</code> functions. The ChainLadder package comes with several other functions for estimting reserves, but we will have to save them for another day. <code>MackChainLadder()</code> provides a distribution free calculation of the standard error of the estimated reserve. <code>BootChainLadder()</code> uses a two stage bootstrap/simulation technique to determine the confidence interval around the estimated reserve.</p>
+<p>We will be using the following packages in this analysis:</p>
+<pre class="r"><code># CRAN packages
+library(ChainLadder) # actuarial projections
+library(dplyr) # data manipulation
+library(tidyr) # data manipulation
+library(ggplot2) # plots
+library(DT) # tables
+# GitHub packages
+# devtools::install_github(&quot;merlinoa/casdata&quot;)
+library(casdata) # insurance data</code></pre>
+</div>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>The CAS website provides historical U.S. insurance loss data across 6 different lines of business and many different companies. Here are the firt 100 rows of the raw data:</p>
+<pre class="r"><code>set.seed(1234)
+
+DT::datatable(
+  casdata::losses[1:100, ],
+  rownames = FALSE,
+  options = list(
+    dom = &quot;tp&quot;
+  )
+)</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","data":[["wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp","wkcomp"],[86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86],["Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp","Allstate Ins Co Grp"],[1988,1988,1988,1988,1988,1988,1988,1988,1988,1988,1989,1989,1989,1989,1989,1989,1989,1989,1989,1989,1990,1990,1990,1990,1990,1990,1990,1990,1990,1990,1991,1991,1991,1991,1991,1991,1991,1991,1991,1991,1992,1992,1992,1992,1992,1992,1992,1992,1992,1992,1993,1993,1993,1993,1993,1993,1993,1993,1993,1993,1994,1994,1994,1994,1994,1994,1994,1994,1994,1994,1995,1995,1995,1995,1995,1995,1995,1995,1995,1995,1996,1996,1996,1996,1996,1996,1996,1996,1996,1996,1997,1997,1997,1997,1997,1997,1997,1997,1997,1997],[1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10],[367404,362988,347288,330648,354690,350092,346808,349124,348157,347762,336928,316483,278496,303033,299496,295061,299251,297492,300620,296626,289198,311381,277980,277732,276563,278067,276704,281101,278023,279032,297174,277209,269739,272666,271318,267578,269592,267745,266677,264467,181796,205079,199106,187833,185663,184940,184507,184705,183888,181261,114807,114774,101460,98430,96930,96121,98085,93795,93753,95363,107934,107569,97730,96185,96124,95821,95722,95496,96374,95766,100686,94456,92314,92241,92929,92214,92107,92362,91470,93060,53381,51205,51087,51015,50226,50343,50060,49564,49739,49459,6725,6663,6473,2917,2933,3103,3002,2909,2907,2909],[70571,155905,220744,251595,274156,287676,298499,304873,321808,325322,66547,136447,179142,211343,231430,244750,254557,270059,273873,277574,52233,133370,178444,204442,222193,232940,253337,256788,261166,263000,59315,128051,169793,196685,213165,234676,239195,245499,247131,248319,39991,89873,114117,133003,154362,159496,164013,166212,167397,168844,19744,47229,61909,85099,87215,88602,89444,89899,90446,90686,20379,46773,88636,91077,92583,93346,93897,94165,94558,94730,18756,84712,87311,89200,90001,90247,90687,91068,91001,91161,42609,44916,46981,47899,48583,49109,49442,49073,49161,49255,691,2085,2795,2866,2905,2909,2908,2909,2909,2909],[127737,60173,27763,15280,27689,20641,14513,15862,8974,8843,116172,52298,20543,28846,22033,17174,17851,10305,12520,7331,108959,62543,32561,25858,21189,16645,9428,11861,6895,6455,112836,60251,37066,28931,24175,12850,12899,8296,7246,5807,73135,52160,39554,20231,12532,11114,9079,7886,6518,4873,57891,39773,16188,5161,3768,3093,5683,1667,1403,2864,47405,22605,1704,537,417,698,634,362,558,128,42787,3054,469,416,484,449,254,325,94,1489,5665,1788,1263,1117,314,152,213,94,283,0,3547,2511,2217,17,11,184,94,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>lob<\/th>\n      <th>gr_code<\/th>\n      <th>gr_name<\/th>\n      <th>origin<\/th>\n      <th>dev<\/th>\n      <th>incurred<\/th>\n      <th>paid<\/th>\n      <th>bulk<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"tp","columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Data from accident years 1988 through 1997 evaluated at each calendar year end (i.e. the upper left triangle of losses) is run through the <code>ChainLadder</code> functions.</p>
+<pre class="r"><code>show_box &lt;- casdata::losses %&gt;%
+              dplyr::filter(lob == &quot;wkcomp&quot;, 
+                            gr_code == 86) %&gt;%
+              dplyr::mutate(cal_yr = origin + dev - 1)
+
+show_tri &lt;- show_box %&gt;%
+              dplyr::filter(cal_yr &lt;= 1997) %&gt;%
+              dplyr::select(dev, paid, origin) %&gt;%
+              tidyr::spread(key = dev, value = paid)
+
+# DT::datatable(
+#   show_tri,
+#   rownames = FALSE,
+#   options = list(
+#     dom = &#39;t&#39;,
+#     columnDefs = list(
+#       list(orderable = FALSE, targets = 0:(length(show_tri) - 1)),
+#       list(class=&quot;dt-center&quot;, targets = 0)
+#     )
+#   )
+# ) %&gt;%
+#   formatCurrency(
+#     columns = 2:11,
+#     digits = 0,
+#     currency = &quot;&quot;
+#   )</code></pre>
+<p>In addition to the upper left triangle, the CAS data set includes actual losses for each accident year developed for 10 years; thus we can compare the projected reserve to the actual reserve after 10 development years (i.e. we can compare the triangle to the filled in square).</p>
+<p>For more information on the data see the <a href="http://www.casact.org/research/index.cfm?fa=loss_reserves_data">CAS webpage</a>.</p>
+<p>The following table breaks down the number of companies included in this analysis by line of business.</p>
+<pre class="r"><code># GRCODE is only unique by lob, 
+# so we need to create new column with unique gr_code
+# by line of business
+df &lt;- losses %&gt;%
+        mutate(id = paste(lob, gr_code, sep = &quot;_&quot;))
+
+
+# All companies with paid loss below this amount will be removed from 
+# our sample before we run the ChainLadder projections.  This will 
+# help to remove some of the random variability and data issues that 
+# are common in companies with very little exposure
+paid_cutoff &lt;- 200
+
+# find unique lob company id for entities below the value in `paid_cut`
+id_below_cut &lt;- df %&gt;%
+                filter(paid &lt;= paid_cutoff) %&gt;%
+                .[[&quot;id&quot;]] %&gt;%
+                unique()
+
+# remove the companies below the paid cut off
+df &lt;- df %&gt;%
+        filter(!(id %in% id_below_cut))</code></pre>
+<pre class="r"><code>df_out &lt;- group_by(df, lob) %&gt;%
+            summarise(companies = length(unique(gr_code)))
+
+df_out$lob &lt;- c(&quot;Commercial Auto&quot;, &quot;Medical Malpractice&quot;,
+                &quot;Other Liabiltiy&quot;, &quot;Private Passenger&quot;,
+                &quot;Product Liability&quot;, &quot;Workers Compensation&quot;)
+
+# DT::datatable(
+#   as.data.frame(df_out),
+#   rownames = FALSE,
+#   colnames = c(&quot;Line of Business&quot;, &quot;Number of Companies&quot;),
+#   options = list(
+#     dom = &#39;t&#39;
+#   ),
+#   caption = &quot;Companies by Line of Business&quot;,
+#   width = &#39;50%&#39;)</code></pre>
+</div>
+<div id="analysis" class="section level3">
+<h3>Analysis</h3>
+<p>I run the <code>MackChainLadder()</code> and <code>BootChainLadder()</code> functions on each company. I subtract the estimated reserve from the actual reserve to get the residuals. To normalize the residuals, I divide the residuals by the estimated standard error. Put a little more formally, I am simply interested in the normalized residuals, <span class="math inline">\(Z\)</span>, where:</p>
+<p><span class="math inline">\(Z = \frac{(p - \hat{p})}{\hat{se(\hat{p})}}\)</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\hat{p}\)</span> is the estimated reserve.</li>
+<li><span class="math inline">\(\hat{se(\hat{p})}\)</span> is the estimated standard error of the estimated reserve.</li>
+<li><span class="math inline">\(p\)</span> is the actual reserve. Where the actual reserve is the paid or incurred amount after 10 development years less the latest paid or incurred amount when the funtion was called.</li>
+</ul>
+<p>The following histograms should provide a visual interpretation of how the reserve projection errors are distributed around the reserve projection.</p>
+</div>
+<div id="histograms" class="section level3">
+<h3>Histograms</h3>
+<p><img src="/blog/2016-02-20-chainladder-in-action_files/figure-html/histogram_plots-1.png" width="672" /><img src="/blog/2016-02-20-chainladder-in-action_files/figure-html/histogram_plots-2.png" width="672" /><img src="/blog/2016-02-20-chainladder-in-action_files/figure-html/histogram_plots-3.png" width="672" /><img src="/blog/2016-02-20-chainladder-in-action_files/figure-html/histogram_plots-4.png" width="672" /></p>
+</div>
+<div id="initial-take-aways" class="section level3">
+<h3>Initial Take Aways</h3>
+<p>Both the Mack and Boot paid reserve projections appear to slightly overestimate the actual reserve across all lines of business. Several factors could be responsible for this overestimation (e.g. higher inflation in the years used to estimate the reserve than in the years after 1997).</p>
+<p>The incurred normalized projection errors tend to be smaller in absolute value terms than the paid reserve projections.</p>
+<p>The <code>BootChainLadder()</code> function on incurred losses gave significantly more accurate reserve projections than what would be expected if the projection errors were from the standard normal distribution.</p>
+</div>
+
+          <br />
+          <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ractuary';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the comments powered by 
+  <a href="http://disqus.com/?ref_noscript">Disqus.</a>
+</noscript>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+</div>
+    <br />
+    <hr />
+    <div class="row main-content">
+      <div class="col-12">
+        <p class="copyright pull-right">
+          
+            &copy;2017 RActuary | All Rights Reserved
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<script src="/js/custom.js"></script>
+
+</body>
+</html>
+
