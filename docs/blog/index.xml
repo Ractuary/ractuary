@@ -2,43 +2,64 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Actuary</title>
-    <link>https://ractuary.github.io/ractuary/blog/</link>
+    <link>/blog/</link>
     <description>Recent content in Blog on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
     <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ractuary.github.io/ractuary/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>CRAN Packages</title>
-      <link>https://ractuary.github.io/ractuary/blog/2017-03-17-cran-packages/</link>
+      <title>Andy Merlino</title>
+      <link>/blog/2017-05-01-andy-merlino-bio/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/ractuary/blog/2017-03-17-cran-packages/</guid>
+      <guid>/blog/2017-05-01-andy-merlino-bio/</guid>
+      <description>I am a property and casualty actuary living in Atlanta, GA. I believe most serious data analysis should be done in an environment like R&amp;rsquo;s rather than on a spreadsheet; I hope RActuary will help other actuaries in their transition from spreadsheets to programmed data analysis.
+I love to learn, and I constantly experiment with alternate ways to improve my workflow. Since I started using R, I have been cycling through a state of ignorance, learning, and then discovering new areas in which I am completely ignorant.</description>
+    </item>
+    
+    <item>
+      <title>CRAN Packages</title>
+      <link>/blog/2017-03-17-cran-packages/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2017-03-17-cran-packages/</guid>
       <description>Sample post about CRAN packages.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
-      <title>ChainLadder Package in Action - Sample</title>
-      <link>https://ractuary.github.io/ractuary/blog/2016-02-20-chainladder-in-action-sample/</link>
+      <title>ChainLadder Package in Action</title>
+      <link>/blog/2016-02-20-chainladder-in-action/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/ractuary/blog/2016-02-20-chainladder-in-action-sample/</guid>
+      <guid>/blog/2016-02-20-chainladder-in-action/</guid>
+      <description>Actuarial Central Estimate — An estimate that represents an expected value over the range of reasonably possible outcomes
+– Actuarial Standards of Practice No. 43
+ Introduction The definition of an “actuarial central estimate” is extermely vague; it doesn’t actually mean anything. A better estimation uses an algorithm to derive the estimation. As a simple example of a good estimator of central tendancy we can look at the sample mean:</description>
+    </item>
+    
+    <item>
+      <title>ChainLadder Package in Action - Sample</title>
+      <link>/blog/2016-02-20-chainladder-in-action-sample/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2016-02-20-chainladder-in-action-sample/</guid>
       <description>Sample Post About the ChainLadder package.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ractuary.github.io/ractuary/blog/img/cran-pkgs/</link>
+      <link>/blog/about/cran-pkgs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/ractuary/blog/img/cran-pkgs/</guid>
+      <guid>/blog/about/cran-pkgs/</guid>
       <description>                                   {&#34;x&#34;:{&#34;hc_opts&#34;:{&#34;title&#34;:{&#34;text&#34;:&#34;R Packages on CRAN&#34;},&#34;yAxis&#34;:{&#34;title&#34;:{&#34;text&#34;:null}},&#34;credits&#34;:{&#34;enabled&#34;:false},&#34;exporting&#34;:{&#34;enabled&#34;:false},&#34;plotOptions&#34;:{&#34;series&#34;:{&#34;turboThreshold&#34;:0},&#34;treemap&#34;:{&#34;layoutAlgorithm&#34;:&#34;squarified&#34;},&#34;bubble&#34;:{&#34;minSize&#34;:5,&#34;maxSize&#34;:25}},&#34;annotationsOptions&#34;:{&#34;enabledButtons&#34;:false},&#34;tooltip&#34;:{&#34;delayForDisplay&#34;:10},&#34;chart&#34;:{&#34;type&#34;:&#34;line&#34;},&#34;legend&#34;:{&#34;enabled&#34;:false},&#34;xAxis&#34;:{&#34;type&#34;:&#34;datetime&#34;},&#34;series&#34;:[{&#34;marker&#34;:{&#34;enabled&#34;:false},&#34;data&#34;:[[1096588800000,235],[1096588800000,290],[1102723200000,390],[1110153600000,464],[1131494400000,586],[1148947200000,701],[1160006400000,820],[1182816000000,1008],[1195776000000,1169],[1214352000000,1383],[1229212800000,1556],[1245888000000,1757],[1264636800000,2067],[1286496000000,2463],[1301529600000,2836],[1319932800000,3250],[1330387200000,3491],[1364688000000,4184],[1396224000000,5096],[1426464000000,6281],[1459382400000,8125],[1489795200000,10277]],&#34;name&#34;:&#34;Packages&#34;}]},&#34;theme&#34;:{&#34;chart&#34;:{&#34;backgroundColor&#34;:&#34;transparent&#34;}},&#34;conf_opts&#34;:{&#34;global&#34;:{&#34;Date&#34;:null,&#34;VMLRadialGradientURL&#34;:&#34;http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png&#34;,&#34;canvasToolsURL&#34;:&#34;http =//code.highcharts.com/list(version)/modules/canvas-tools.js&#34;,&#34;getTimezoneOffset&#34;:null,&#34;timezoneOffset&#34;:0,&#34;useUTC&#34;:true},&#34;lang&#34;:{&#34;contextButtonTitle&#34;:&#34;Chart context menu&#34;,&#34;decimalPoint&#34;:&#34;.&#34;,&#34;downloadJPEG&#34;:&#34;Download JPEG image&#34;,&#34;downloadPDF&#34;:&#34;Download PDF document&#34;,&#34;downloadPNG&#34;:&#34;Download PNG image&#34;,&#34;downloadSVG&#34;:&#34;Download SVG vector image&#34;,&#34;drillUpText&#34;:&#34;Back to {series.name}&#34;,&#34;invalidDate&#34;:null,&#34;loading&#34;:&#34;Loading...&#34;,&#34;months&#34;:[&#34;January&#34;,&#34;February&#34;,&#34;March&#34;,&#34;April&#34;,&#34;May&#34;,&#34;June&#34;,&#34;July&#34;,&#34;August&#34;,&#34;September&#34;,&#34;October&#34;,&#34;November&#34;,&#34;December&#34;],&#34;noData&#34;:&#34;No data to display&#34;,&#34;numericSymbols&#34;:[&#34;k&#34;,&#34;M&#34;,&#34;G&#34;,&#34;T&#34;,&#34;P&#34;,&#34;E&#34;],&#34;printChart&#34;:&#34;Print chart&#34;,&#34;resetZoom&#34;:&#34;Reset zoom&#34;,&#34;resetZoomTitle&#34;:&#34;Reset zoom level 1:1&#34;,&#34;shortMonths&#34;:[&#34;Jan&#34;,&#34;Feb&#34;,&#34;Mar&#34;,&#34;Apr&#34;,&#34;May&#34;,&#34;Jun&#34;,&#34;Jul&#34;,&#34;Aug&#34;,&#34;Sep&#34;,&#34;Oct&#34;,&#34;Nov&#34;,&#34;Dec&#34;],&#34;thousandsSep&#34;:&#34; &#34;,&#34;weekdays&#34;:[&#34;Sunday&#34;,&#34;Monday&#34;,&#34;Tuesday&#34;,&#34;Wednesday&#34;,&#34;Thursday&#34;,&#34;Friday&#34;,&#34;Saturday&#34;]}},&#34;type&#34;:&#34;chart&#34;,&#34;fonts&#34;:[],&#34;debug&#34;:false},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]} {&#34;viewer&#34;:{&#34;width&#34;:&#34;100%&#34;,&#34;height&#34;:350,&#34;padding&#34;:15,&#34;fill&#34;:true},&#34;browser&#34;:{&#34;width&#34;:&#34;100%&#34;,&#34;height&#34;:500,&#34;padding&#34;:40,&#34;fill&#34;:true}}   </description>
     </item>
     

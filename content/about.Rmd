@@ -3,7 +3,9 @@ title: "About R Actuary"
 author: "Andy Merlino"
 ---
 
-We create open source R packages and projects to improve actuarial analysis.  There are a lot of reasons we like R.  In particular we believe that R's reproducible reporting capabilities, Rstudio's recent inovations, R's data science capabilities, and the ability to interface with a vast array of state of the art software makes R the perfect tool for actuarial analysis and communication. We want every actuary to have the powers of R in their actuarial tool kit.
+The R ecosystem has matured extremely quickly over the last few years.  It is now possible for a relatively new user to do everything from data gathering to final report generation and beyond in R.  R can do a lot more than most people realize; e.g. this website was even built using the [blogdown](https://github.com/rstudio/blogdown) R package.  We are particularly excited about advances in reproducible reporting, Rstudio's innovations for communicating analyses, and the ability to interface with a vast array of state of the art (non R) software.
+
+Our focus is on practical applications of R for actuaries.  We are not interested in fitting a distribution in R and then taking that fit and manually plugging it into a spreadsheet.  We want actuaries to generate reports in R, create web apps, and automate workflows.  We want every actuary to have the powers of R in their actuarial tool kit. To this end we create open source R packages and projects to help actuaries leverage the advances in R.  
 
 ## Actuaries
 
@@ -13,7 +15,7 @@ By transitioning more of our analyses to R we can unlock the ever expanding powe
 
 ## R
 
-R is the leading data analysis platform, and it is improving rapidly.  The acceleration of innovation is obvious when you look at growth in R packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).  
+R is the leading data analysis platform, and it is improving rapidly.  We don't have the space to cover all the reasons R is a great tool for data analysis, but the acceleration of innovation is obvious when you look at growth in R packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).  
 
 ```{r, echo = FALSE }
 num_pkg <- read.csv("./blog/about/num-r-packages.csv", stringsAsFactors = FALSE)
@@ -49,14 +51,10 @@ CRAN was created in 1997, so (if you mouse over the above plot you can see) it t
 
 Companies continue to increase their investments in R. Most of the big tech companies are invested in R, and more importantly [Rstudio](https://www.rstudio.com/) (starting around 2011) began rapidly bringing R from academia to the mainstream.  Rstudio did this by building powerful and easy to approach tools to improve and communicate data analysis.  The [Rstudio IDE](https://www.rstudio.com/products/rstudio/), [Shiny](https://shiny.rstudio.com/), and [Rmarkdown](http://rmarkdown.rstudio.com/) are three of the most notable of their many projects.
 
-Rstudio's packages are built with a coherent [tidy data](http://tidyverse.org/) philosophy for data science.  This allows them to work nicely together and have consistent and powerful APIs.  
+Rstudio's packages are built with the [tidy data](http://tidyverse.org/) philosophy for data science.  This allows them to work nicely together and have consistent and powerful APIs.  
 
 Rstudio's packages also tend to be very easy to use out of the box.  Their packages allow the user to get a minimal result with very little knowledge of the package.  They do this while still allowing for a high degree of flexibility as you learn more about the package.  This package design structure creates an enjoyable experience where your efforts are quickly and constantly rewarded.
 
 RActuary has adopted the Rstudio philosophy of tidy data analysis and a "simple defaults with great flexibility" approach to building packages.
 
-## Me
 
-I am a property and casualty actuary living in Atlanta, GA. I believe most serious data analysis should be done in an environment like R's rather than on a spreadsheet; I hope RActuary will help other actuaries in their transition from spreadsheets to programmed data analysis.
-
-I love to learn, and I constantly experiment with alternate ways to improve my workflow. Since I started using R, I have been cycling through a state of ignorance, learning, and then discovering new areas in which I am completely ignorant. It has been a fun experience, and I am hopeful more and more actuaries will see R as the powerful tool I believe it is. I am looking forward to sharing some of the things I have learned and whatever I happen to learn in the future with whoever finds it interesting or useful.

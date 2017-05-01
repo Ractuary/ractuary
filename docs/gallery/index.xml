@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gallery on Actuary</title>
-    <link>https://ractuary.github.io/ractuary/gallery/</link>
+    <link>/gallery/</link>
     <description>Recent content in Gallery on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
     
-	<atom:link href="https://ractuary.github.io/ractuary/gallery/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/gallery/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Shiny App: Frequency Severity Simulation</title>
-      <link>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</link>
+      <link>/gallery/claims-sim-general/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</guid>
+      <guid>/gallery/claims-sim-general/</guid>
       <description></description>
     </item>
     

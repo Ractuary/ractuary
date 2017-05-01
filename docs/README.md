@@ -1,2 +1,0 @@
-# ractuary
-Website for RActuary
