@@ -70,12 +70,12 @@
 
 .nav a:hover {
   text-decoration: none;
-  color: #4285f4;
+  color: #337ab7;
 }
 
 .nav .active a {
   font-weight: bold;
-  color: #4285f4;
+  color: #337ab7;
   background: rgba(255,255,255,0.2);
   z-index: 1000;
 }
