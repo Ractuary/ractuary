@@ -1,4 +1,4 @@
-baseurl = "https://ractuary.github.io/ractuary/"
+baseurl = "https://ractuary.github.io/"
 title = "Actuary"
 theme = "tychobra-hugo-theme"
 pluralizeListTitles = false
