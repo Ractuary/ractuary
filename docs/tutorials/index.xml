@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tutorials on Actuary</title>
-    <link>https://ractuary.github.io/tutorials/</link>
+    <link>/tutorials/</link>
     <description>Recent content in Tutorials on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
     <lastBuildDate>Thu, 20 Apr 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ractuary.github.io/tutorials/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Predictive Modeling Tutorial</title>
-      <link>https://ractuary.github.io/tutorials/modeling/</link>
+      <link>/tutorials/modeling/</link>
       <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/tutorials/modeling/</guid>
+      <guid>/tutorials/modeling/</guid>
       <description>Coming Soon  </description>
     </item>
     
     <item>
       <title>Simple Insurance Claims Simulation</title>
-      <link>https://ractuary.github.io/tutorials/insurance-claims-simulation/</link>
+      <link>/tutorials/insurance-claims-simulation/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/tutorials/insurance-claims-simulation/</guid>
+      <guid>/tutorials/insurance-claims-simulation/</guid>
       <description>A Single Frequency/Severity Observation Warning: This tutorial is just a placeholder so don’t working through it.
 We will start running one frequency severity simulation. We will firts simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.
 Step 1: simulate a single frequency We are using the poisson distriubtion to simulate the frequency. The poisson distribution has one parameter (lambda). Both the mean and the variance of the poisson distribution are equal to lambda.</description>

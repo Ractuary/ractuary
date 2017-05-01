@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Actuary</title>
-    <link>https://ractuary.github.io/categories/</link>
+    <link>/categories/</link>
     <description>Recent content in Categories on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
     
-	<atom:link href="https://ractuary.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chainladder</title>
-      <link>https://ractuary.github.io/categories/chainladder/</link>
+      <link>/categories/chainladder/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/categories/chainladder/</guid>
+      <guid>/categories/chainladder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Reserving</title>
-      <link>https://ractuary.github.io/categories/reserving/</link>
+      <link>/categories/reserving/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/categories/reserving/</guid>
+      <guid>/categories/reserving/</guid>
       <description></description>
     </item>
     

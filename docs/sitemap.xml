@@ -2,87 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ractuary.github.io/tutorials/modeling/</loc>
+    <loc>/tutorials/modeling/</loc>
     <lastmod>2017-04-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/tutorials/insurance-claims-simulation/</loc>
+    <loc>/tutorials/insurance-claims-simulation/</loc>
     <lastmod>2017-03-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/blog/2017-03-17-cran-packages/</loc>
+    <loc>/blog/2017-05-01-andy-merlino-bio/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/blog/2016-02-20-chainladder-in-action-sample/</loc>
+    <loc>/blog/2017-03-17-cran-packages/</loc>
+    <lastmod>2017-03-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2016-02-20-chainladder-in-action/</loc>
     <lastmod>2017-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/blog/about/cran-pkgs/</loc>
+    <loc>/blog/2016-02-20-chainladder-in-action-sample/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/about/</loc>
+    <loc>/blog/about/cran-pkgs/</loc>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/</loc>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
     <lastmod>2017-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2017-03-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/categories/chainladder/</loc>
+    <loc>/categories/chainladder/</loc>
     <lastmod>2017-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/gallery/</loc>
+    <loc>/gallery/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/projects/</loc>
+    <loc>/projects/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/projects/index/</loc>
+    <loc>/projects/index/</loc>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/categories/reserving/</loc>
+    <loc>/categories/reserving/</loc>
     <lastmod>2017-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/gallery/claims-sim-general/</loc>
+    <loc>/gallery/claims-sim-general/</loc>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://ractuary.github.io/tutorials/</loc>
+    <loc>/tutorials/</loc>
     <lastmod>2017-04-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

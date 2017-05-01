@@ -2,22 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chainladder on Actuary</title>
-    <link>https://ractuary.github.io/categories/chainladder/</link>
+    <link>/categories/chainladder/</link>
     <description>Recent content in Chainladder on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
     <lastBuildDate>Mon, 20 Feb 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://ractuary.github.io/categories/chainladder/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/chainladder/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ChainLadder Package in Action - Sample</title>
-      <link>https://ractuary.github.io/blog/2016-02-20-chainladder-in-action-sample/</link>
+      <title>ChainLadder Package in Action</title>
+      <link>/blog/2016-02-20-chainladder-in-action/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/blog/2016-02-20-chainladder-in-action-sample/</guid>
+      <guid>/blog/2016-02-20-chainladder-in-action/</guid>
+      <description>Actuarial Central Estimate — An estimate that represents an expected value over the range of reasonably possible outcomes
+– Actuarial Standards of Practice No. 43
+ Introduction The definition of an “actuarial central estimate” is extermely vague; it doesn’t actually mean anything. A better estimation uses an algorithm to derive the estimation. As a simple example of a good estimator of central tendancy we can look at the sample mean:</description>
+    </item>
+    
+    <item>
+      <title>ChainLadder Package in Action - Sample</title>
+      <link>/blog/2016-02-20-chainladder-in-action-sample/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2016-02-20-chainladder-in-action-sample/</guid>
       <description>Sample Post About the ChainLadder package.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
     </item>
