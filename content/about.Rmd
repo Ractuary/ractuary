@@ -31,15 +31,14 @@ num_pkg <- rbind(num_pkg, current_pckg_num)
 ```
 
 ```{r, message = FALSE, eval = FALSE, echo = FALSE }
-library(highcharter)
-g <- highchart() %>%
-        hc_title(text = "R Packages on CRAN") %>%
-        hc_chart(type = "line") %>%
-        hc_legend(enabled = FALSE) %>%
-        hc_add_series_times_values(
-          num_pkg$date, num_pkg$pkgs, 
-          name = "Packages")
- 
+library(plotly)
+
+fit <- lm(log(pkgs) ~ date, data = num_pkg)
+g <- plot_ly(num_pkg, x = ~date, y = ~pkgs, mode = "line") %>%
+       layout(title = "Packages on CRAN",
+              xaxis = list(title = "Year"),
+              yaxis = list(title = "Packages"))
+
 htmlwidgets::saveWidget(g, file = "./blog/about/cran-pkgs.html", selfcontained = TRUE)
 ```
 
