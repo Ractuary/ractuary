@@ -3,19 +3,9 @@ title: "About R Actuary"
 author: "Andy Merlino"
 ---
 
-The R ecosystem has matured extremely quickly over the last few years.  It is now possible for a relatively new user to do everything from data gathering to final report generation and beyond in R.  R can do a lot more than most people realize; e.g. this website was even built using the [blogdown](https://github.com/rstudio/blogdown) R package.  We are particularly excited about advances in reproducible reporting, Rstudio's innovations for communicating analyses, and the ability to interface with a vast array of state of the art (non R) software.
+R has always been a powerful platform for data analysis, and it continues to improve.  It is easier than ever to get started in R, and, once you get comfortable, R can be used to create surprisingly elegant reports and analyses (e.g. this website was built using the [blogdown](https://github.com/rstudio/blogdown) R package).  
 
-Our focus is on practical applications of R for actuaries.  We are not interested in fitting a distribution in R and then taking that fit and manually plugging it into a spreadsheet.  We want actuaries to generate reports in R, create web apps, and automate workflows.  We want every actuary to have the powers of R in their actuarial tool kit. To this end we create open source R packages and projects to help actuaries leverage the advances in R.  
-
-## Actuaries
-
-Most actuaries think R is interesting, some actuaries even use R regularly, but as of 2017 it is rare to find an actuary who uses R (or any programmed data analysis) more than he or she uses Excel.
-
-By transitioning more of our analyses to R we can unlock the ever expanding power of the R ecosystem.  We just need to build out the tools and spread the knowledge.  Major improvments are within our grasps.
-
-## R
-
-R is the leading data analysis platform, and it is improving rapidly.  We don't have the space to cover all the reasons R is a great tool for data analysis, but the acceleration of innovation is obvious when you look at growth in R packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).  
+We believe R's current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis.  The acceleration of innovation is obvious when you look at growth in R packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).
 
 ```{r, echo = FALSE }
 num_pkg <- read.csv("./blog/about/num-r-packages.csv", stringsAsFactors = FALSE)
@@ -31,30 +21,35 @@ num_pkg <- rbind(num_pkg, current_pckg_num)
 ```
 
 ```{r, message = FALSE, eval = FALSE, echo = FALSE }
-library(highcharter)
-g <- highchart() %>%
-        hc_title(text = "R Packages on CRAN") %>%
-        hc_chart(type = "line") %>%
-        hc_legend(enabled = FALSE) %>%
-        hc_add_series_times_values(
-          num_pkg$date, num_pkg$pkgs, 
-          name = "Packages")
- 
+library(plotly)
+
+g <- plot_ly(num_pkg, x = ~date, y = ~pkgs, mode = "line") %>%
+       layout(title = "Packages on CRAN",
+              xaxis = list(title = "Year"),
+              yaxis = list(title = "Packages")) %>%
+       config(displaylogo = FALSE, displayModeBar = FALSE)
+
 htmlwidgets::saveWidget(g, file = "./blog/about/cran-pkgs.html", selfcontained = TRUE)
 ```
 
 <iframe src="../blog/about/cran-pkgs/index.html" width = "100%" height="500" ></iframe>
 
-CRAN was created in 1997, so (if you mouse over the above plot you can see) it took 10 years to get to 1,000 packages in 2007 and 10 more year to get to 10,000 packages in 2017.  The number of packages on CRAN is doubling every 3.3 years; this is the definition of exponential growth.  Will CRAN have 100,000 packages in 2027?
+CRAN was created in 1997, so (if you hover over the above plot you can see) it took 10 years to get to 1,000 packages in 2007 and 10 more year to get to 10,000 packages in 2017.  The number of packages on CRAN is doubling every 3 years. Will CRAN have 100,000 packages in 2027?
+
+## Actuaries
+
+Most actuaries think R is interesting, some actuaries even use R regularly, but as of 2017 it is rare to find an actuary who uses R (or any programmed data analysis) more than he or she uses Excel.
+
+By transitioning more of our analyses to R we can unlock the ever expanding power of the R ecosystem.  We just need to build out the tools and spread the knowledge.  Major improvments are within our grasps.
+
+The largest and most immediate improvements to actuarial analysis can be made by using R to generate reports, communicate via the web, and work in reproducible workflows.  Data analysis is a lot more than fitting statistical models. Gathering and wrangling data and communicating your findings is often much more time consuming than the statistical modeling.  We want every actuary to have the powers of R for practical data analysis. Practical data analysis means gathering the data, cleaning it, and producing a report or web app.  To help actuaries use R efficiently, we create open source R packages and projects to make it easier to use R for actuarial analysis.
 
 ## Rstudio
 
-Companies continue to increase their investments in R. Most of the big tech companies are invested in R, and more importantly [Rstudio](https://www.rstudio.com/) (starting around 2011) began rapidly bringing R from academia to the mainstream.  Rstudio did this by building powerful and easy to approach tools to improve and communicate data analysis.  The [Rstudio IDE](https://www.rstudio.com/products/rstudio/), [Shiny](https://shiny.rstudio.com/), and [Rmarkdown](http://rmarkdown.rstudio.com/) are three of the most notable of their many projects.
+We use Rstudio's products and packages and we try and emulate the Rstudio approach to data science. If you are not familiar with Rstudio, we highly recommend the resources on their [website](https://www.rstudio.com/) and their packages.
 
 Rstudio's packages are built with the [tidy data](http://tidyverse.org/) philosophy for data science.  This allows them to work nicely together and have consistent and powerful APIs.  
 
 Rstudio's packages also tend to be very easy to use out of the box.  Their packages allow the user to get a minimal result with very little knowledge of the package.  They do this while still allowing for a high degree of flexibility as you learn more about the package.  This package design structure creates an enjoyable experience where your efforts are quickly and constantly rewarded.
 
-RActuary has adopted the Rstudio philosophy of tidy data analysis and a "simple defaults with great flexibility" approach to building packages.
-
-
+We have adopted the Rstudio philosophy of tidy data analysis and a "simple defaults with great flexibility" approach to building packages.

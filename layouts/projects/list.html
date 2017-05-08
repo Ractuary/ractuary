@@ -14,14 +14,16 @@
           <div class="col-lg-6">
             <div class="card">
               <div class="card-block">
-                <h2 class="card-title">Coming Soon</h2>
+                <h2 class="card-title">{{ .Title }}</h2>
                 <h6 class="card-test"></h6>
                 <br />
                 <ul style="list-style-type: none;">
                   <li>
                     <h4>
-                      <a href="{{ .Permalink }}"></a>
+                      <p>{{ .Description }}</p>
                     </h4>
+                    <a href="{{ .Permalink }}" class="btn btn-default">Tutorial</a>
+                    <a href="{{ .Params.github_url }}" class="btn btn-primary">View on GitHub</a>
                   </li>
                 </ul>
               </div>

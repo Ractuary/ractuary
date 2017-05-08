@@ -1,0 +1,7 @@
+---
+title: "devtri"
+description: "Easily work with development triangles and loss development factors to generate simple reserve reports in R"
+github_url: "https://github.com/Ractuary/devtri"
+---
+
+[View on GitHub]("https://github.com/Ractuary/devtri")
