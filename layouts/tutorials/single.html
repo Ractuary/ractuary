@@ -4,16 +4,16 @@
 <div class="col-12">
   {{ partial "navToggle.html" . }}
   <div class="row main-content">
-    <div class="content-column-content col-xl-10">
-        <a href="{{ .Site.BaseURL }}tutorials/">Back to Tutorials</a>
+    <div class="col-xl-10">
+        <a href="{{ .Site.BaseURL }}tutorials/"> < Back to Tutorials</a>
         <br />
         <br />
         <div class="card">
           <div class="card-block">
-          <h1 class="car-title">{{ .Title }}</h1>
+          <h1 class="card-title">{{ .Title }}</h1>
           <br />
           <br />
-          {{ .Content }}
+            {{ .Content }}
           </div>
         </div>
     </div>
