@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Example Reserve Report</title>
+      <link>https://ractuary.github.io/ractuary/gallery/rr-example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ractuary.github.io/ractuary/gallery/rr-example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Shiny App: Frequency Severity Simulation</title>
       <link>https://ractuary.github.io/ractuary/gallery/claims-sim-general/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

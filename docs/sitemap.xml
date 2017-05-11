@@ -26,6 +26,10 @@
   </url>
   
   <url>
+    <loc>https://ractuary.github.io/ractuary/cran-pkgs/</loc>
+  </url>
+  
+  <url>
     <loc>https://ractuary.github.io/ractuary/about/</loc>
   </url>
   
@@ -50,6 +54,10 @@
     <loc>https://ractuary.github.io/ractuary/categories/chainladder/</loc>
     <lastmod>2017-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ractuary.github.io/ractuary/gallery/rr-example/</loc>
   </url>
   
   <url>
