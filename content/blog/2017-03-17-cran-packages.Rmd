@@ -3,6 +3,7 @@ title: "CRAN Packages"
 author: "Andy Merlino"
 type: "post"
 date: "2017-03-19"
+draft: true
 image: "img/brown-package.png"
 ---
 

@@ -4,7 +4,7 @@ author: "Andy Merlino"
 type: "post"
 date: "2017-02-20"
 categories: ["ChainLadder", "Reserving"]
-draft: false
+draft: true
 image: "img/chain-ladder.jpg"
 ---
 
