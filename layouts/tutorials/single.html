@@ -13,7 +13,9 @@
           <h1 class="card-title">{{ .Title }}</h1>
           <br />
           <br />
-            {{ .Content }}
+            {{ .Content | safeHTML }}
+            <br />
+            {{ partial "comments.html" . }}
           </div>
         </div>
     </div>

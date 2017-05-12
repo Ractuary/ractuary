@@ -10,48 +10,48 @@
       <br />
       <div class="row">
         
-        {{ range .Data.Pages }}
-          {{ if eq .Params.tut_category "simulation" }}
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-block">
-                  <h2 class="card-title">Simulation</h2>
-                  <h6 class="card-test">Simulations are cool</h6>
-                  <br />
-                  <ul style="list-style-type: none;">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-block">
+              <h2 class="card-title">Simulation</h2>
+                <h6 class="card-test">Difficulty Level: Beginner</h6>
+                <br />
+                <ol>
+                {{ range .Data.Pages }}
+                  {{ if eq .Params.tut_category "simulation" }}
                     <li>
                       <h4>
                         <a href="{{ .Permalink }}">{{ .Title }}</a>
                       </h4>
                     </li>
-                  </ul>
-                </div>
+                  {{ end }}
+                {{ end }}
+                </ol>
               </div>
             </div>
-          {{ end }}
-        {{ end }}
-            
-        {{ range .Data.Pages }}
-          {{ if eq .Params.tut_category "modeling" }}
-            <div class="col-lg-6">
-              <div class="card">
-                <div class="card-block">
-                  <h2 class="card-title">Modeling</h2>
-                  <h6 class="card-test">Modeling is neat</h6>
-                  <br />
-                  <ul style="list-style-type: none;">
+          </div>
+          
+        
+          <div class="col-lg-6">
+          <div class="card">
+            <div class="card-block">
+              <h2 class="card-title">Modeling</h2>
+                <h6 class="card-test">Difficulty Level: Beginner</h6>
+                <br />
+                <ol>
+                {{ range .Data.Pages }}
+                  {{ if eq .Params.tut_category "modeling" }}
                     <li>
                       <h4>
                         <a href="{{ .Permalink }}">{{ .Title }}</a>
                       </h4>
                     </li>
-                  </ul>
-                </div>
+                  {{ end }}
+                {{ end }}
+                </ol>
               </div>
             </div>
-          {{ end }}
-        {{ end }}  
-      
+          </div> 
       </div>      
     </div>
   </div>
