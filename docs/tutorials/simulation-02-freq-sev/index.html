@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Simple Insurance Claims Simulation</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow" >
+  <meta name="googlebot" content="index,follow,snippet,archive" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic" >
+  <link rel="stylesheet" href="https://ractuary.github.io/ractuary/css/font-awesome.min.css" />
+  
+  <meta name="google-site-verification" content="agjsDt8HXS4yYizS-kj6OnNXvJ-3J-ONvc2vVejs4ZQ" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css" />
+  <link href="https://ractuary.github.io/ractuary/css/style.css" rel="stylesheet" />
+  
+  <link rel="shortcut icon" href="https://ractuary.github.io/ractuary/img/ractuary-logo.png" />
+  
+  
+  <link rel="stylesheet" href="https://ractuary.github.io/ractuary/css/tychobra-hljs.css">
+  
+  <script src="https://ractuary.github.io/ractuary/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+  <link href="https://ractuary.github.io/ractuary/css/simplesidebar.css" rel="stylesheet" >
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-56381152-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+  
+    
+            
+<div id="wrapper" class="toggled">
+<div id="sidebar-wrapper">
+  <div id="sidebar-content">
+    <h1 class="sidebar-heading">
+      <a href="https://ractuary.github.io/ractuary/">
+        <img src="https://ractuary.github.io/ractuary/img/ractuary-logo.png" height="50" width="50"/> Actuary
+      </a>
+    </h1>
+    <br />
+    <ul class="nav flex-column">
+      
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/about/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-info-circle"></i> 
+            </div>
+            <div class="col-10">
+              About
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/projects/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-folder-open"></i> 
+            </div>
+            <div class="col-10">
+              Projects
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/tutorials/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-graduation-cap"></i> 
+            </div>
+            <div class="col-10">
+              Tutorials
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/gallery/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-bar-chart"></i> 
+            </div>
+            <div class="col-10">
+              Gallery
+            </div>
+          </div>
+          </a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://ractuary.github.io/ractuary/blog/">
+          <div class="row">
+            <div class="col-2">
+              <i class="fa fa-newspaper-o"></i> 
+            </div>
+            <div class="col-10">
+              Blog
+            </div>
+          </div>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="col-12">
+  <div class="row" style="height: 40px; position: fixed; z-index:100000">
+  <a href="#menu-toggle" 
+     class="btn menu-toggled" 
+     id="menu-toggle"
+     style="top:0; z-index:100;">
+    <i class="fa fa-align-left "> </i>  
+  </a>
+</div>
+
+  <div class="row main-content">
+    <div class="col-xl-10">
+        <a href="https://ractuary.github.io/ractuary/tutorials/"> &lt; Back to Tutorials</a>
+        <br />
+        <br />
+        <div class="card">
+          <div class="card-block">
+          <h1 class="card-title">Simple Insurance Claims Simulation</h1>
+          <br />
+          <br />
+            <div id="a-single-frequencyseverity-observation" class="section level2">
+<h2>A Single Frequency/Severity Observation</h2>
+<p>We will start by running one frequency severity simulation. We will first simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.</p>
+<div id="step-1-simulate-a-single-frequency" class="section level3">
+<h3>Step 1: simulate a single frequency</h3>
+<p>We are using the poisson distriubtion to simulate the frequency. The poisson distribution has one parameter (<code>lambda</code>). Both the mean and the variance of the poisson distribution are equal to <code>lambda</code>. Without further ado let’s run the simulation:</p>
+<pre class="r"><code>set.seed(3000)
+
+freq &lt;- rpois(n = 1, lambda = 10)
+freq</code></pre>
+<pre><code>#&gt; [1] 13</code></pre>
+<p>We simulated 13 claims.</p>
+</div>
+<div id="step-2-severity-simulation" class="section level3">
+<h3>Step 2: Severity Simulation</h3>
+<p>Now we will simulate a severity for each of these 13 claims. We will use the lognormal distribution here.</p>
+<pre class="r"><code>severity &lt;- rlnorm(n = freq, meanlog = 9, sd = 1.9)
+severity</code></pre>
+<pre><code>#&gt;  [1]  27585.0343  19542.7042  35016.7195   5270.9408   4154.9639
+#&gt;  [6]   2359.7060    735.8857    322.2873    248.4781   1696.8470
+#&gt; [11]    374.5661  14470.0607 138278.2592</code></pre>
+</div>
+<div id="step-3-inspect-the-results" class="section level3">
+<h3>Step 3: Inspect the Results</h3>
+<pre class="r"><code>summary(severity)</code></pre>
+<pre><code>#&gt;     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+#&gt;    248.5    735.9   4155.0  19235.1  19542.7 138278.3</code></pre>
+<p>Ok. That looks pretty good. Now let’s do what computers do best and scale the number of computations up a bit.</p>
+</div>
+</div>
+<div id="multiple-frequencyseverity-observations" class="section level2">
+<h2>Multiple Frequency/Severity Observations</h2>
+<div id="step-1-simulate-the-frequencies" class="section level3">
+<h3>Step 1: simulate the frequencies</h3>
+<pre class="r"><code># set the number of observations
+n_obs &lt;- 1000
+
+# run the frequency simulations
+freq &lt;- rpois(n_obs, 10)
+
+# inspect some of the simulated frequencies
+freq[1:20]</code></pre>
+<pre><code>#&gt;  [1] 10  8 11 11 13 17  8 15  9 15  9 12  6  8  8 11 13  7 15 10</code></pre>
+</div>
+<div id="step-2-simulate-the-severities" class="section level3">
+<h3>Step 2: Simulate the Severities</h3>
+<p>Now we are going to run severity simulations for each of our simulated frequencies. This is where things may start to get a little complicated if you are just starting out.</p>
+<pre class="r"><code>severity &lt;- lapply(freq, function(x) {
+  rlnorm(n = x, meanlog = 9, sd = 1.9)
+})</code></pre>
+<p>In the above code we used the <code>lapply()</code> function to run the <code>rlnorm()</code> function on each of the elements in out <code>freq</code> vector. The output is a list with 1000 elements. Each element in our list output contains the number of simulated severities as specified in the <code>freq</code> vector. e.g. the first two frequency simulations were 10, 8 and the first two elements in our <code>severity</code> list are:</p>
+<pre class="r"><code>severity[1:2]</code></pre>
+<pre><code>#&gt; [[1]]
+#&gt;  [1] 1207648.3071    7162.4942     943.3199   27414.2922   52984.9986
+#&gt;  [6]     767.3141   11866.0220    9226.3428   78598.8073    4117.2499
+#&gt; 
+#&gt; [[2]]
+#&gt; [1]  1050.4483  4785.0691  6728.8804   659.4182   785.1295   549.3497
+#&gt; [7]  9945.6607 98724.3965</code></pre>
+<p>You can see above that <code>severity[[1]]</code> has 10 simulated values and <code>severity[[2]]</code> has 8 simulated values.</p>
+</div>
+</div>
+<div id="step-3-tidy-the-data" class="section level2">
+<h2>Step 3: Tidy the Data</h2>
+<p>Our data is in a list format, but we want it in a data frame. The <code>dplyr</code> package is amazing for working with data frames. We will be using it a lot in these tutorials.</p>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>#&gt; 
+#&gt; Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>#&gt; The following objects are masked from &#39;package:stats&#39;:
+#&gt; 
+#&gt;     filter, lag</code></pre>
+<pre><code>#&gt; The following objects are masked from &#39;package:base&#39;:
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code># first convert each list item to a data frame
+severity &lt;- lapply(1:length(severity), function(x) {
+  data.frame(&quot;sim&quot; = x, &quot;severity&quot; = severity[[x]])
+})
+
+# now combine the data frames into one big data frame
+severity &lt;- bind_rows(severity)
+head(severity)</code></pre>
+<pre><code>#&gt;   sim     severity
+#&gt; 1   1 1207648.3071
+#&gt; 2   1    7162.4942
+#&gt; 3   1     943.3199
+#&gt; 4   1   27414.2922
+#&gt; 5   1   52984.9986
+#&gt; 6   1     767.3141</code></pre>
+<p>Now that we have our data in a nice tidy data frame we can do easily work with it. First lets find the total aggregate loss for each frequency severity simulation.</p>
+<pre class="r"><code>agg &lt;- severity %&gt;% group_by(sim) %&gt;%
+               summarize(agg = sum(severity))
+
+head(agg)</code></pre>
+<pre><code>#&gt; # A tibble: 6 x 2
+#&gt;     sim        agg
+#&gt;   &lt;int&gt;      &lt;dbl&gt;
+#&gt; 1     1 1400729.15
+#&gt; 2     2  123228.35
+#&gt; 3     3  267868.74
+#&gt; 4     4   98443.92
+#&gt; 5     5  744712.75
+#&gt; 6     6  666766.80</code></pre>
+<p>The average aggregate loss is</p>
+<pre class="r"><code>mean(agg$agg)</code></pre>
+<pre><code>#&gt; [1] 434163.8</code></pre>
+<p>Now what happens if we apply a limit of 100,000 to each severity:</p>
+<pre class="r"><code>agg_limited &lt;- severity %&gt;%
+                 mutate(severity_limited = pmin(severity, 100000)) %&gt;%
+                 group_by(sim) %&gt;%
+                 summarize(agg = sum(severity),
+                           agg_limited = sum(severity_limited))
+head(agg_limited)</code></pre>
+<pre><code>#&gt; # A tibble: 6 x 3
+#&gt;     sim        agg agg_limited
+#&gt;   &lt;int&gt;      &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1     1 1400729.15   293080.84
+#&gt; 2     2  123228.35   123228.35
+#&gt; 3     3  267868.74   267868.74
+#&gt; 4     4   98443.92    98443.92
+#&gt; 5     5  744712.75   504921.27
+#&gt; 6     6  666766.80   526577.00</code></pre>
+<p>Our mean frequency sevrity simulation with each severity limited to 100,000 is:</p>
+<pre class="r"><code>mean(agg_limited$agg_limited)</code></pre>
+<pre><code>#&gt; [1] 227466.5</code></pre>
+<p>Here we learned the basics of a frequency/severity simulation. In the next tutorail we will apply an aggregate stop loss, and we will introduce other distributions.</p>
+</div>
+
+            <br />
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+    
+    
+    if (window.location.hostname == "localhost") 
+        return;
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ractuary';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>
+  Please enable JavaScript to view the comments powered by 
+  <a href="http://disqus.com/?ref_noscript">Disqus.</a>
+</noscript>
+          </div>
+        </div>
+    </div>
+  </div>
+    <br />
+    <hr />
+    <div class="col-12">
+      <div class="row main-content">
+        <div class="col-12">
+          <p class="copyright pull-right">
+            
+              &copy;2017 RActuary | All Rights Reserved
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+<script src="https://ractuary.github.io/ractuary/js/custom.js"></script>
+
+</body>
+</html>

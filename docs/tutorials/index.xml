@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy;2017 RActuary</copyright>
-    <lastBuildDate>Thu, 20 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ractuary.github.io/ractuary/tutorials/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introduction to Simulations in R</title>
+      <link>https://ractuary.github.io/ractuary/tutorials/simulation-01-intro/</link>
+      <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ractuary.github.io/ractuary/tutorials/simulation-01-intro/</guid>
+      <description>The first thing that I did when learning R was run some random simulations. It was a great way to quickly get familiar with R’s base data structures and functions without needing to load data into R. I have also found it very useful for creating sample data and coming up with quick confidence levels.
+Before you start generating random numbers, it is a good idea to set the seed so that your simulations will be reproducible.</description>
+    </item>
     
     <item>
       <title>Predictive Modeling Tutorial</title>
@@ -23,12 +33,11 @@
     
     <item>
       <title>Simple Insurance Claims Simulation</title>
-      <link>https://ractuary.github.io/ractuary/tutorials/insurance-claims-simulation/</link>
+      <link>https://ractuary.github.io/ractuary/tutorials/simulation-02-freq-sev/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ractuary.github.io/ractuary/tutorials/insurance-claims-simulation/</guid>
-      <description>A Single Frequency/Severity Observation Warning: This tutorial is just a placeholder so don’t working through it.
-We will start running one frequency severity simulation. We will firts simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.
+      <guid>https://ractuary.github.io/ractuary/tutorials/simulation-02-freq-sev/</guid>
+      <description>A Single Frequency/Severity Observation We will start by running one frequency severity simulation. We will first simulate the frequency (i.e. the number of claims), and then we will simulate a severity for each simulated claim.
 Step 1: simulate a single frequency We are using the poisson distriubtion to simulate the frequency. The poisson distribution has one parameter (lambda). Both the mean and the variance of the poisson distribution are equal to lambda.</description>
     </item>
     
