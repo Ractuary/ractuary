@@ -3,9 +3,9 @@ title: "About R Actuary"
 author: "Andy Merlino"
 ---
 
-R is a powerful platform for data analysis, and it continues to improve.  It is easier than ever to get started in R, and, once you get comfortable, the quality and breadth of analyses you can create is astounding (e.g. this website was built using the [blogdown](https://github.com/rstudio/blogdown) R package).  R is not just statistical software; it is an end to end data science platform with interfaces to other state of the art software like [Spark](http://spark.apache.org/) and [Tensorflow](https://www.tensorflow.org/).
+## R
 
-We believe R's current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis.  You can get a sense of the acceleration of innovation in R when you look at growth in packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).
+R is a powerful platform for data analysis, and it continues to improve.  We believe R's current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis.  You can get a sense of the acceleration of innovation in R when you look at growth in packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).
 
 ```{r, echo = FALSE }
 num_pkg <- read.csv("./blog/about/num-r-packages.csv", stringsAsFactors = FALSE)
@@ -64,12 +64,12 @@ Most actuaries think R is interesting, some actuaries even use R regularly, but 
 
 By transitioning more of our analyses to R we can unlock the ever expanding power of the R ecosystem.  We just need to build out the tools and spread the knowledge.  Major improvments are within our grasps.
 
-The largest and most immediate improvements to actuarial analysis can be made by using R to generate reports, communicate via the web, and work in reproducible workflows.  Data analysis is a lot more than fitting statistical models. Gathering and wrangling data and communicating your findings is often much more time consuming than the statistical modeling.  We want every actuary to have the powers of R for practical data analysis. To help actuaries use R efficiently, we create open source R packages and projects that focus first on practical actuarial analysis and second on advances in actuarial modeling.
+The largest and most immediate improvements to actuarial analysis can be made by using R to generate reports, communicate via the web, and work in reproducible workflows.  To help actuaries use R efficiently, we create open source R packages and projects that focus first on practical actuarial analysis (such as report creation) and second on advances in actuarial modeling.
 
 ## Rstudio
 
-We use Rstudio's products and packages and we try to emulate the Rstudio approach to data science. If you are not familiar with Rstudio, we highly recommend the resources on their [website](https://www.rstudio.com/) and their packages.
+We use Rstudio's products and packages and we try to emulate the Rstudio approach to data science. If you are not familiar with Rstudio, we highly recommend the resources on their [website](https://www.rstudio.com/).
 
 ## Join Us
 
-We are just getting started, but would love you contributions and feedback.  Please check us out on [GitHub](https://github.com/Ractuary) and let us know what you are up to: andy.merlino@tychobra.com
+We are just getting started, but would love your feedback.  Please check us out on [GitHub](https://github.com/Ractuary) and let us know what you are up to: andy.merlino@tychobra.com
