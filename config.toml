@@ -6,7 +6,6 @@ languageCode = "en-us"
 googleAnalytics = "UA-56381152-2"
 
 [params]
-  copyright = "&copy;2017 RActuary"
   disqus = "ractuary"
   image = "img/ractuary-logo.png"
   email = "merlinoa88@gmail.com"

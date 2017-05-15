@@ -3,6 +3,8 @@ title: "About R Actuary"
 author: "Andy Merlino"
 ---
 
+RActuary develops open source packages and educational material to facilitate actuarial analysis in R.  RActuary is a project by [Tychobra, LLC](http://tychobra.com/).  
+
 ## R
 
 R is a powerful platform for data analysis, and it continues to improve.  We believe R's current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis.  You can get a sense of the acceleration of innovation in R when you look at growth in packages on [CRAN](https://en.wikipedia.org/wiki/R_(programming_language)#CRAN).
