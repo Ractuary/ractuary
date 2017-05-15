@@ -6,7 +6,6 @@
     <description>Recent content on Actuary</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy;2017 RActuary</copyright>
     <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ractuary.github.io/ractuary/index.xml" rel="self" type="application/rss+xml" />
@@ -65,8 +64,8 @@ Step 1: simulate a single frequency We are using the poisson distriubtion to sim
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ractuary.github.io/ractuary/about/</guid>
-      <description>R R is a powerful platform for data analysis, and it continues to improve. We believe R’s current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis. You can get a sense of the acceleration of innovation in R when you look at growth in packages on CRAN.
- CRAN was created in 1997, so it took 10 years to get to 1,000 packages in 2007 and 10 more year to get to 10,000 packages in 2017.</description>
+      <description>RActuary develops open source packages and educational material to facilitate actuarial analysis in R. RActuary is a project by Tychobra, LLC.
+R R is a powerful platform for data analysis, and it continues to improve. We believe R’s current capabilities, its rate of improvement, and its ability to adapt to the changing data science landscape make it ideal for the future of actuarial analysis. You can get a sense of the acceleration of innovation in R when you look at growth in packages on CRAN.</description>
     </item>
     
     <item>
