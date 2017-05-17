@@ -24,6 +24,9 @@
                     </h4>
                     <!--<a href="{{ .Permalink }}" class="btn btn-default">Tutorial</a>-->
                     <a href="{{ .Params.github_url }}" class="btn btn-primary">View on GitHub</a>
+                    {{ if isset .Params "github_pages"  }}
+                      <a href="{{ .Params.github_pages }}" class="btn btn-primary">View Website</a>
+                    {{ end }}
                   </li>
                 </ul>
               </div>
