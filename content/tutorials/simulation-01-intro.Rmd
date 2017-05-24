@@ -1,6 +1,7 @@
 ---
-title: "Introduction to Simulations in R"
+title: "Introdution to Simulations: set.seed()"
 date: "2017-05-12"
+updated: "`r Sys.Date()`"
 output: html_document
 tut_category: "simulation"
 ---
@@ -10,13 +11,15 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(comment = "#>")
 ```
 
-The first thing that I did when learning R was run some random simulations.  It was a great way to quickly get familiar with R's base data structures and functions without needing to load data into R.  I have also found it very useful for creating sample data and coming up with quick confidence levels.  
+The first thing that I did when learning R was simulate data using R's random number generator functions.  It was a great way to quickly get familiar with R's base data structures and functions without needing to load data into R.  I have also found it very useful for creating sample data and coming up with quick confidence levels.  
 
 Before you start generating random numbers, it is a good idea to set the seed so that your simulations will be reproducible.
 
 ```{r}
 set.seed(1234)
 ```
+
+You set the seed by passing an integer to `set.seed`.  The seed contains the state for random number generation in R.  If you set the seed before you generate random numbers you will be able to reset the seed and rerun the simulation and get the exact same results.  This is possible because computers use pseudo random number generators which are not truely random, but are random enough (according to a bunch of tests of randomness).  A remarkable amount of work has gone into making appropriate pseudo random number generators, and fortunately with R, we get to piggy back on all that hard work.
 
 Now that we have our seed set we can do a very basic simulation using the `sample()` function.
 
@@ -26,4 +29,19 @@ sample(1:10, size = 2, replace = TRUE)
 
 Above we drew two random observations from the numbers `r 1:10` with replacement.  It may seem pretty boring, but the `sample()` function definitely comes in handy.  Particularly for creating mock data sets.  
 
-R also comes with a variety of probability distributions that can generate random numbers.  We will be using several of them in the upcoming tutorials.  At the end of these tutorials we will put our simualtion skills to test by creating a Shiny application that simulates and plots random numbers.
+If we rerun the simulation without setting the seed we will get a different result:
+
+```{r}
+sample(1:10, size = 2, replace = TRUE)
+```
+
+Now we rerun the simulation for a thrid time, but this time we will first set the seed using our original see value of `1234`.
+
+```{r}
+set.seed(1234)
+sample(1:10, size = 2, replace = TRUE)
+```
+
+As you can see, this simulation produced the same results as our first simulation.  This is because we set R's ranbdom number generator to identical states in our first and third simulations.  Now that you know how to set the seed we can move on to more interesting simulations.
+
+R comes with a variety of probability distributions that can generate random numbers.  We will be using several of them in the upcoming tutorials.  At the end of these tutorials we will put our simulation skills to the test by creating a Shiny application that simulates and plots random numbers.
