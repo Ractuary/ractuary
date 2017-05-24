@@ -1,8 +1,8 @@
 ---
 title: "Introdution to Simulations: set.seed()"
 date: "2017-05-12"
-updated: "`r Sys.Date()`"
 output: html_document
+updated: "`r Sys.Date()`"
 tut_category: "simulation"
 ---
 
