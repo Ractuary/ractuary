@@ -11,6 +11,10 @@
         <div class="card">
           <div class="card-block">
           <h1 class="card-title">{{ .Title }}</h1>
+          <h4>Published: {{ .Date.Format "January 2, 2006" }}</h4>
+          {{ if (isset .Params "lastmod") }}
+            <h4>Last Updated: {{ .Lastmod.Format "January 2, 2006" }}</h4>
+          {{ end }}
           <br />
           <br />
             {{ .Content | safeHTML }}
