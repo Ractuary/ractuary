@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Introduction to Simulations in R</title>
+  <title>Intro: set.seed() and sample()</title>
   
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="all,follow" >
@@ -139,17 +139,34 @@ ga('send', 'pageview');
         <br />
         <div class="card">
           <div class="card-block">
-          <h1 class="card-title">Introduction to Simulations in R</h1>
+          <h1 class="card-title">Intro: set.seed() and sample()</h1>
+          <h4>Published: May 12, 2017</h4>
+          
+            <h4>Last Updated: May 25, 2017</h4>
+          
           <br />
           <br />
-            <p>The first thing that I did when learning R was run some random simulations. It was a great way to quickly get familiar with R’s base data structures and functions without needing to load data into R. I have also found it very useful for creating sample data and coming up with quick confidence levels.</p>
-<p>Before you start generating random numbers, it is a good idea to set the seed so that your simulations will be reproducible.</p>
+            <p>Simulation is very useful for creating sample data, coming up with quick confidence levels, and performing a wide range of other practical data analysis tasks. Additionally simulating data is a great way for beginners to quickly do something useful in R and get familiar with R’s base data structures and functions.</p>
+<p>Before generating random numbers, we set the seed so that our simulations will be reproducible.</p>
 <pre class="r"><code>set.seed(1234)</code></pre>
+<p>We set the seed by passing an integer to <code>set.seed()</code>. The seed contains the state for random number generation in R. By setting the seed before generating random numbers you will be able to reset the seed and rerun the simulation and get the exact same results. It is possible to reproduce “randomly” generated numbers because computers use pseudo random number generators which are not truely random, but are random enough (according to a bunch of tests of randomness). A remarkable amount of work has gone into making appropriate pseudo random number generators, and fortunately with R, we get to piggy back on all that hard work.</p>
 <p>Now that we have our seed set we can do a very basic simulation using the <code>sample()</code> function.</p>
 <pre class="r"><code>sample(1:10, size = 2, replace = TRUE)</code></pre>
 <pre><code>#&gt; [1] 2 7</code></pre>
 <p>Above we drew two random observations from the numbers 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 with replacement. It may seem pretty boring, but the <code>sample()</code> function definitely comes in handy. Particularly for creating mock data sets.</p>
-<p>R also comes with a variety of probability distributions that can generate random numbers. We will be using several of them in the upcoming tutorials. At the end of these tutorials we will put our simualtion skills to test by creating a Shiny application that simulates and plots random numbers.</p>
+<p>If we rerun the simulation without setting the seed we will get a different result:</p>
+<pre class="r"><code>sample(1:10, size = 2, replace = TRUE)</code></pre>
+<pre><code>#&gt; [1] 7 7</code></pre>
+<p>Now we rerun our first simulation for a thrid time, but this time we will first set the seed using our original see value of <code>1234</code>.</p>
+<pre class="r"><code>set.seed(1234)
+sample(1:10, size = 2, replace = TRUE)</code></pre>
+<pre><code>#&gt; [1] 2 7</code></pre>
+<p>As you can see, this simulation produced the same results as our first simulation. The results are identical because we set R’s random number generator to identical states in our first and third simulations.</p>
+<p>As I am sure you have guessed by now, the sample function can draw from vectors other than numeric vectors. e.g. we could sample genders from a character vector:</p>
+<pre class="r"><code>sample(c(&quot;m&quot;, &quot;f&quot;), size = 5, replace = TRUE)</code></pre>
+<pre><code>#&gt; [1] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;m&quot;</code></pre>
+<p>Now that you know how to use <code>set.seed()</code> and <code>sample()</code> we can move on to more interesting simulations.</p>
+<p>R comes with a variety of probability distributions that can generate random numbers. We will be using several of them in the upcoming tutorials. At the end of these tutorials we will put our simulation skills to the test by creating a Shiny application that simulates and plots random numbers.</p>
 
             <br />
             <div id="disqus_thread"></div>

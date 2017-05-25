@@ -12,13 +12,14 @@
     
     
     <item>
-      <title>Introduction to Simulations in R</title>
+      <title>Intro: set.seed() and sample()</title>
       <link>https://ractuary.github.io/ractuary/tutorials/simulation-01-intro/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ractuary.github.io/ractuary/tutorials/simulation-01-intro/</guid>
-      <description>The first thing that I did when learning R was run some random simulations. It was a great way to quickly get familiar with R’s base data structures and functions without needing to load data into R. I have also found it very useful for creating sample data and coming up with quick confidence levels.
-Before you start generating random numbers, it is a good idea to set the seed so that your simulations will be reproducible.</description>
+      <description>Simulation is very useful for creating sample data, coming up with quick confidence levels, and performing a wide range of other practical data analysis tasks. Additionally simulating data is a great way for beginners to quickly do something useful in R and get familiar with R’s base data structures and functions.
+Before generating random numbers, we set the seed so that our simulations will be reproducible.
+set.seed(1234) We set the seed by passing an integer to set.</description>
     </item>
     
     <item>
